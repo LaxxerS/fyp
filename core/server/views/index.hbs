@@ -1,0 +1,20 @@
+{{!< default}}
+
+
+<main class="content" role="main">
+
+    {{#each posts}}
+
+    <article class="{{post_class}}">
+        <header class="post-header">
+            <h2 class="post-title"><a href="{{slug}}">{{title}}</a></h2>
+            <p>{{status}}</p>
+        </header>
+        <section class="post-excerpt">
+            <p>{{{html}}}&hellip;</p>
+        </section>
+    </article>
+
+    {{/each}}
+
+</main>

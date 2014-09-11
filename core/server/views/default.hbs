@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Admin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/x/scripts/vendors/css/normalize.css'/>
+    <link rel='stylesheet' href='/x/scripts/vendors/css/screen.css'/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    {{#unless hideNavbar}}
+    <header class="navbar">
+        <nav class="admin-navbar" role="navigation">
+            <ul class="nav-menu">
+                <li><a href="/admin/content/" class="fade">Content</a></li>
+                <li><a href="/admin/editor/" class="fade">New</a></li>
+                <li><a href="" class="fade">Settings</a></li>
+                <li class="pull-right"><a href="" class="fade"><i class="fa fa-power-off fa-lg"></i></a></li>
+                <li class="pull-right"><a href="" class="fade">CHONG ZHI RUI</a></li>
+                <li class="pull-right"><div class="rounded"><img src="http://piq.codeus.net/static/media/userpics/piq_16841_25x25.png"></div></li>
+            </ul>
+        </nav>
+    </header>
+    {{/unless}}
+
+
+
+    <main role="main" id="main">
+        {{{body}}}
+    </main>
+    <link rel='stylesheet' href='/x/scripts/vendors/css/nprogress.css'/>
+    <link rel='stylesheet' href='/x/scripts/vendors/css/normalize.css'/>
+    <script src="/x/scripts/vendors/jquery.js"></script>
+    <script src="/x/scripts/vendors/underscore.js"></script>
+    <script src="/x/scripts/vendors/backbone.js"></script>
+    <script src="/x/scripts/vendors/handlebars.js"></script>
+    <script src="/x/scripts/vendors/nprogress.js"></script>
+    <script src="/x/scripts/vendors/showdown.js"></script>
+    <script src="/x/scripts/vendors/readingTime.js"></script>
+    <script src="/x/scripts/vendors/Countable.js"></script>
+    <script src="/x/scripts/vendors/moment.js"></script>
+    <script src="/x/scripts/helpers/index.js"></script>
+    <script src="/x/scripts/init.js"></script>
+    <script src="/x/scripts/models/post.js"></script>
+    <script src="/x/scripts/router.js"></script>
+    <script src="/x/scripts/templates/hbs-tpl.js"></script>
+    <script src="/x/scripts/views/login.js"></script>
+    <script src="/x/scripts/views/blog.js"></script>
+    <script src="/x/scripts/views/editor.js"></script>
+    <script src="/x/scripts/vendors/lodash.js"></script>
+
+
+</body>
+</html>
+
