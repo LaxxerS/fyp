@@ -6,7 +6,7 @@
 	});
 
 	App.Collections.Posts = Backbone.Collection.extend({
-		url: 'http://localhost:3000/admin/api/v0.1/posts/',
+		url: App.paths.api + '/posts',
 		model: App.Models.Post
 	});
 
