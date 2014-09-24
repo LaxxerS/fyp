@@ -29,7 +29,7 @@ function init() {
 
 
 	// ## Initialize
-	//models.init();
+	models.init();
 
 
 	

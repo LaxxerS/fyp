@@ -1,12 +1,19 @@
 var myBookshelf = require('./base'),
 	bcrypt		= require('bcryptjs'),
 	_ 			= require('lodash'),
+	bcryptjs    = require('bcryptjs'),
 	nodefn      = require('when/node'),
 	when		= require('when'),
 
-
 	User;
 
+function generatePasswordHash(password) {
+    // Generate a new salt
+    return nodefn.call(bcrypt.genSalt).then(function (salt) {
+        // Hash the provided password with bcrypt
+        return nodefn.call(bcrypt.hash, password, salt);
+    });
+}
 
 User = myBookshelf.Model.extend({
 	tableName: 'users',
@@ -18,8 +25,6 @@ User = myBookshelf.Model.extend({
 				if(!matched) {
 					return when.reject(new Error('Your password is incorrect.'));
 				}
-				console.log(_userData.password);
-				console.log(bcrypt.compareSync(_userData.password, user.get('password')));
 
 				return when(user.set('status', 'active').save()).then(function(user) {
 					return user;
@@ -49,10 +54,20 @@ User = myBookshelf.Model.extend({
         });
 	},
 
-    add: function(newPostData) {
-		var self = this;
+    add: function(newUserData) {
+		var self = this,
+		userData = _.extend({}, newUserData);
 
-		return myBookshelf.Model.add.call(this, newPostData);
+		generatePasswordHash(userData.password).then(function(hash) {
+			if(hash) {
+				userData.password = hash;
+			}
+		}).then(function() {
+			return myBookshelf.Model.add.call(self, userData);
+		}) 
+			
+		return when.resolve(userData);
+
     }
 });
 

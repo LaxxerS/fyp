@@ -28,15 +28,15 @@ post_3 = {
 	"status": "published"
 }
 
-users = {
-	"name": "admin",
+user = {
+	"name": "Chong Zhi Rui",
 	"password": "abc123laxx",
 	"email": "laxxers@gmail.com"
 
 }
 
 function PopulateUsers() {
-	return User.add(users).then(function(post) {
+	return User.add(user).then(function(user) {
 		console.log("userdone");
 	});
 }
