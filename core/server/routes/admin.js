@@ -7,7 +7,7 @@ module.exports = function(server) {
 
 	server.get('/admin/', admin.content);
 	server.get('/admin/signin/', admin.signin);
-	server.post('/admin/signin', admin.doSignin);
+	server.post('/admin/signin/', admin.doSignin);
 	server.get('/admin/content/', admin.content);
 	server.get('/admin/editor(/:id)/', admin.editor);
 	server.get('/admin/editor/', admin.editor);

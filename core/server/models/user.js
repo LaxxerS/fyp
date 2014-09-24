@@ -4,6 +4,7 @@ var myBookshelf = require('./base'),
 	nodefn      = require('when/node'),
 	when		= require('when'),
 
+
 	User;
 
 
@@ -44,7 +45,6 @@ User = myBookshelf.Model.extend({
             if (userWithEmail) {
                 return when.resolve(userWithEmail);
             }
-
             return when.reject(new Error('NotFound'));
         });
 	},
