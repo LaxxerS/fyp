@@ -7,6 +7,7 @@ var express 	 = require('express'),
 	cookieParser = require('cookie-parser'),
 	bodyParser	 = require('body-parser'),
 
+	middleware   = require('./middlewares'),
 	models		 = require('./models'),
 	routes 	  	 = require('./routes');
 
@@ -31,6 +32,7 @@ function init() {
 	// ## Initialize
 	models.init();
 
+	middleware(server);
 
 	
 	// ## Routing
@@ -44,9 +46,6 @@ function init() {
 
 
 	// ## Setup views
-	server.set('views', path.join(__dirname, 'views'));
-	server.set('view engine', 'hbs');
-	server.engine('hbs', hbs.express3()); 
 
 
 
