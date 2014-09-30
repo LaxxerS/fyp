@@ -9,10 +9,10 @@ body, html {
 
 main {
   position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 10px;
-  left: 15px;
+  top: 50px;
+  right: 9px;
+  bottom: 9px;
+  left: 10px;
   padding: 0;
   overflow: hidden;
 }
@@ -23,6 +23,7 @@ main {
 	background: white;
 	text-transform: uppercase;
 	font-size: 11px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .navbar ul {
@@ -74,27 +75,27 @@ main {
 .login-form {
 	margin-top: 45px;
 	margin-left: 50px;
-		-webkit-animation: fadein 2s; 
-	-moz-animation: fadein 2s; 
-	animation: fadein 2s;
+	-webkit-animation: fadein 2s; 
+	   -moz-animation: fadein 2s; 
+	        animation: fadein 2s;
 }
 
-.login-form .email-wrap, .password-wrap, .button-save {
+.login-form .email-wrap, .password-wrap {
 	display: inline-block;
 	vertical-align: top;
+	margin: 0;
 }
 
 
 input[name="email"],
 input[name="password"] {
-    border: 1px solid #1C2021;
+    border: none;
     color: #dddddd;
 	font-weight: lighter;
     background: #444444;
-    padding: 10px;
+    padding: 7px 8px;
     outline: none;
-    width: 300px;
-    margin: 5px;
+    width: 210px;
     -webkit-transition: background-color .5s linear;
        -moz-transition: background-color .5s linear;   
             transition: background-color .5 linear;   
@@ -106,7 +107,7 @@ input[name="password"]:focus {
 }
 
 input[type="text"] {
-	height: 50px;
+	height: 55px;
 	width: 100%;
 	border: none;
 	padding: 5px 10px;
@@ -121,38 +122,58 @@ input[type="text"]:focus {
 	outline: none;
 }
 
-
-button[type="submit"] {
+.btn {
 	font-weight: lighter;
-	font-size: 12px;
-	width: 150px;
-	margin: 6px;
+	font-size: 11px;
 	text-transform: uppercase;
-	background-color: #3C8AB8;
-	border: 1px solid #3C8AB8;
-	color: #dddddd;
-	padding: 10px 12px 10px 12px;
+	font-variant: small-caps;
+	border: none;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	min-height: 25px;
+	width: auto;
+	display: inline-block;
+	padding: 0.9em 1.37em;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+	line-height: 13px;
+	text-align: center;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-shadow: none;
+	border-radius: 0.2em;
+	outline: none;
+	-webkit-transition: .5s;
+	   -moz-transition: .5s;
+	        transition: .5s;	
+}
+
+.btn:hover {
+	text-decoration: none;
 	-webkit-transition: .5s;
 	   -moz-transition: .5s;
 	        transition: .5s;
 }
-
-button[type="submit"]:hover {
-	border: 1px solid #005F97;
-	color: #dddddd;
-	background: #005F97;
-	-webkit-transition: .5s;
-	   -moz-transition: .5s;
-	        transition: .5s;
+.btn-primary {
+	background-color: #5ba4e5;
 }
 
-button[type="submit"]:active {
-	outline: 0;
+.btn-primary:hover {
+	background: #2f8cde;
+}
+
+.btn-success {
+	background-color: #62C462;	
+}
+
+.btn-success:hover {
+	background-color: #43B73F;
 }
 
 .meta {
-	text-align: right;
-	padding-right: 73px;
+	font-style: italic;
 }
 
 .meta a {
@@ -181,7 +202,7 @@ button[type="submit"]:active {
 	width: 25%;
 	background: white;
 	height: 100%;
-	padding-top: 27px;
+	padding-top: 40px;
 	border-right: #edece4 2px solid;
 }		
 
@@ -248,7 +269,7 @@ button[type="submit"]:active {
 	z-index: 400;
 	height: 50px;
 	width: 100%;
-	padding: 15px 80px;
+	padding: 15px 60px;
 	color: #aaa9a2;
 	background-color: transparent;
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(25%, white), color-stop(100%, rgba(255, 255, 255, 0.9)));
@@ -257,7 +278,7 @@ button[type="submit"]:active {
 }
 
 .content-preview .preview-header a {	
-	padding-left: 20px;
+	padding: 0 10px;
 	color: #EDECE4;
 }
 
@@ -282,14 +303,14 @@ button[type="submit"]:active {
 }
 
 .content-preview .wrapper {
-	font-size: 14px;
-	padding: 80px 80px;
+	font-size: 18px;
+	padding: 80px 60px;
 	word-break: break-word;
 	text-align: justify;
 	position: absolute;
 	overflow: auto;
 	position: absolute;
-	line-height: 150%;
+	line-height: 170%;
 	word-break: break-all;
 	top: 0;
 	right: 0;
@@ -307,7 +328,7 @@ button[type="submit"]:active {
 .title-container {
 	width: 100%;
 	background: white;
-	height: 50px;
+	height: 55px;
 }	
 
  /* EDITOR MARKDOWN AND HTML */
@@ -318,8 +339,8 @@ button[type="submit"]:active {
 	width: 50%;
 	padding: 15px;
 	position: absolute;
-	top: 5px;
-	bottom: 40px;
+	top: 4px;
+	bottom: 95px;
 	background: #fff;
 	padding: 0;
  }
@@ -392,6 +413,28 @@ button[type="submit"]:active {
 	bottom: 0;
 	left: 0;
 	overflow: auto;
+}
+
+.publish-bar {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 40px;
+	padding: 0;
+	color: #7d878a;
+	background: #1a1c1d;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 900;
+	box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.entry-actions {
+	text-align: right;
+	margin: 3px;
+	padding-right: 8px;
 }
 
 /* UTIL CLASSES */
@@ -489,6 +532,13 @@ button[type="submit"]:active {
 }
 
 @media (max-width: 1000px) {
+
+main {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
 .content-preview {
 	width: auto;
 	left: 100%;
@@ -498,7 +548,12 @@ button[type="submit"]:active {
 } 
 
 .content-preview .preview-header {
-	display: none;
+	padding: 10px 20px;
+}
+
+.content-preview .wrapper {
+	font-size: 13px;
+	padding: 30px 20px;
 }
 
 }

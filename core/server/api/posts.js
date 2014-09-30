@@ -29,8 +29,20 @@ posts = {
                 console.log(omitted);
                 return omitted;
             }
-            //return when.reject({code: 404, message: 'Post not found'});
+            return when.reject({code: 404, message: 'Post not found'});
 			});
+	},
+
+	edit: function(postData) {
+			return dataProvider.Post.edit(postData.id).then(function() {
+                if (result) {
+                    var omitted = result.toJSON();
+                    omitted.author = _.omit(omitted.author, filteredUserAttributes);
+                    omitted.user = _.omit(omitted.user, filteredUserAttributes);
+                    return omitted;
+                }
+                return when.reject({code: 404, message: 'Post not found'});
+			})
 	}
 
 };

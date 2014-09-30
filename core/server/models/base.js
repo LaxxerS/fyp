@@ -28,6 +28,14 @@ myBookshelf.Model = myBookshelf.Model.extend({
         return instance.save(null);
     },
 
+    edit: function(editedObj, options) {
+        options = options || {};
+
+        return this.forge({id: editedObj.id}).fetch(options).then(function(foundObj) {
+            return foundObj.save(editedObj, options);
+        });
+    }
+
 });
 
 module.exports = myBookshelf;

@@ -61,6 +61,12 @@ Post = myBookshelf.Model.extend({
 		var self = this;
 
 		return myBookshelf.Model.add.call(this, newPostData);
+    },
+
+    edit: function(editedPost, options) {
+    	var self = this;
+
+    	return myBookshelf.Model.edit.call(this, editedPost, options);
     }
 
 });
