@@ -30,11 +30,12 @@ myBookshelf.Model = myBookshelf.Model.extend({
 
     edit: function(editedObj, options) {
         options = options || {};
+        var omitted = _.omit(editedObj, 'author');
 
-        return this.forge({id: editedObj.id}).fetch(options).then(function(foundObj) {
-            return foundObj.save(editedObj, options);
+        return this.forge({id: omitted.id}).fetch(options).then(function(foundObj) {
+            return foundObj.save(omitted, options);
         });
-    }
+    },
 
 });
 

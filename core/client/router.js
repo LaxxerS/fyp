@@ -4,7 +4,7 @@
 	App.Router = Backbone.Router.extend({
 
 		routes: {
-			
+			'': 'blog',
 			'signin/': 'login',
 			'content/': 'blog',
 			'editor(/:id)/': 'editor'
@@ -29,7 +29,7 @@
             if (id) {
                 post.id = id;
                 NProgress.start();
-                post.fetch().then(function () {
+                post.fetch({data: {status: 'all'}}).then(function () {
                     App.currentView = new App.Views.Editor({ el: '#main', model: post });
                     NProgress.done();
                 });

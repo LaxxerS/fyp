@@ -27,4 +27,14 @@
         }
         return date;
     });
+
+    Handlebars.registerHelper('compare', function(firstValue, secondValue, options) {
+        if (arguments.length < 3)
+            throw new Error("Handlebars Helper compare needs 2 parameters");
+        if( firstValue != secondValue ) {
+            return options.inverse(this);
+        } else {
+            return options.fn(this);
+        }
+    });
 }());

@@ -4,7 +4,9 @@
 	App.Views.Editor = Backbone.View.extend({
         events: {
             'click #help' : 'showHelp',
+            'click #btn-publish' : 'savePost'
         },
+
 
         initialize: function () {
             var converter = new Showdown.converter(),
@@ -35,6 +37,20 @@
             }
 
             this.wordCount(preview);
+        },
+
+        savePost: function() {
+            var saved;
+
+            NProgress.start();
+            saved = this.model.save({
+                title: this.$title.val(),
+                markdown: this.$editor.val(),
+            });
+
+            if(saved) {
+                NProgress.done();
+            }
         },
 
         showHelp: function() {

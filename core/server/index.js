@@ -33,7 +33,6 @@ function init() {
 	models.init();
 
 	middleware(server);
-
 	
 	// ## Routing
 

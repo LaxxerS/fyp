@@ -53,6 +53,10 @@ Post = myBookshelf.Model.extend({
     		status: 'published'
     	}, args || {});
 
+        if(args.status === 'all') {
+            delete args.status;
+        }
+
     	options.withRelated = ['author'];
     	return myBookshelf.Model.findOne.call(this, args, options);
     },
@@ -60,13 +64,23 @@ Post = myBookshelf.Model.extend({
     add: function(newPostData) {
 		var self = this;
 
-		return myBookshelf.Model.add.call(this, newPostData);
+		return myBookshelf.Model.add.call(this, newPostData).then(function(post) {
+            return self.findOne({status: 'all', id: post.id}, options);
+        });
     },
 
     edit: function(editedPost, options) {
     	var self = this;
 
-    	return myBookshelf.Model.edit.call(this, editedPost, options);
+    	return myBookshelf.Model.edit.call(this, editedPost, options).then(function(post) {
+            return self.findOne({status: 'all', id: post.id}, options);
+        });
+    },
+
+    add: function(newPostData, options) {
+        var self = this;
+
+        return myBookshelf.Model.add.call(this, newPostData, options);
     }
 
 });

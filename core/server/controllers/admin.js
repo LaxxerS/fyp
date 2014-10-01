@@ -12,8 +12,7 @@ adminControllers = {
 			req.session.regenerate(function(error) {
 				if(!error) {
 					req.session.user = user.id;
-					console.log(req.session.user);
-					res.redirect(301, '/');
+					res.redirect(301, '/admin/');
 				}
 			});
 		}, function(error) {

@@ -15,7 +15,7 @@ posts = {
             for (i = 0; i < omitted.length; i = i + 1) {
                 omitted[i].author = _.omit(omitted[i].author, Blacklist);
             }
-            return omitted;
+            return _.sortBy(omitted, 'updated_at').reverse();
 			});
 		},
 
@@ -26,24 +26,33 @@ posts = {
             if (result) {
                 omitted = result.toJSON();
                 omitted.author = _.omit(omitted.author, Blacklist);
-                console.log(omitted);
                 return omitted;
             }
-            return when.reject({code: 404, message: 'Post not found'});
+                return new Error('Post not found');
 			});
 	},
 
 	edit: function(postData) {
-			return dataProvider.Post.edit(postData.id).then(function() {
+			return dataProvider.Post.edit(postData).then(function(result) {
                 if (result) {
                     var omitted = result.toJSON();
-                    omitted.author = _.omit(omitted.author, filteredUserAttributes);
-                    omitted.user = _.omit(omitted.user, filteredUserAttributes);
+                    omitted.author = _.omit(omitted.author, Blacklist);
                     return omitted;
                 }
-                return when.reject({code: 404, message: 'Post not found'});
+                return new Error('Post not found');
 			})
-	}
+	},
+
+    add: function(newPostData) {
+            return dataProvider.Post.add(newPostData).then(function(result) {
+                if (result) {
+                    var omitted = result.toJSON();
+                    omitted.author = _.omit(omitted.author, Blacklist);
+                    return omitted;
+                }
+                return new Error('Post not found');
+            })
+    }
 
 };
 

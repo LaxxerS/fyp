@@ -3,18 +3,36 @@ this["JST"] = this["JST"] || {};
 this["JST"]["list-item"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, functionType="function", self=this;
 
+function program1(depth0,data) {
+  
+  var buffer = "", helper, options;
+  buffer += "\r\n        		<span class=\"published\">Published "
+    + escapeExpression((helper = helpers.date || (depth0 && depth0.date),options={hash:{
+    'timeago': ("True")
+  },data:data},helper ? helper.call(depth0, (depth0 && depth0.updated_at), options) : helperMissing.call(depth0, "date", (depth0 && depth0.updated_at), options)))
+    + "</span>\r\n        	";
+  return buffer;
+  }
 
-  buffer += "<a class=\"fade\" href=\"#\">\r\n    <h2 class=\"entry-title\">";
+function program3(depth0,data) {
+  
+  
+  return "\r\n        		<span class=\"draft\">Draft</span>\r\n        	";
+  }
+
+  buffer += "<a class=\"fade\" href=\"#\">\r\n    <h3 class=\"entry-title\">";
   if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "</h2>\r\n    <section class=\"entry-meta\">\r\n        <span class=\"status\">\r\n        	Published "
-    + escapeExpression((helper = helpers.date || (depth0 && depth0.date),options={hash:{
-    'timeago': ("True")
-  },data:data},helper ? helper.call(depth0, (depth0 && depth0.created_at), options) : helperMissing.call(depth0, "date", (depth0 && depth0.created_at), options)))
-    + "\r\n        </span>\r\n    </section>\r\n</a>\r\n";
+  buffer += "</h3>\r\n    <section class=\"entry-meta\">\r\n        <span class=\"status\">\r\n        	";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.status), "published", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.status), "published", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n        	";
+  stack1 = (helper = helpers.compare || (depth0 && depth0.compare),options={hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data},helper ? helper.call(depth0, (depth0 && depth0.status), "draft", options) : helperMissing.call(depth0, "compare", (depth0 && depth0.status), "draft", options));
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n        </span>\r\n    </section>\r\n</a>\r\n";
   return buffer;
   });
 

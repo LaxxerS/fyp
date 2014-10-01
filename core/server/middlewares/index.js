@@ -30,6 +30,7 @@ function manageThemePath(req, res, next) {
 
 module.exports = function(server) {
 	expressServer = server;
+	
 	expressServer.use(manageThemePath);
 }
 

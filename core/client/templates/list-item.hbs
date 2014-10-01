@@ -1,8 +1,14 @@
 <a class="fade" href="#">
-    <h2 class="entry-title">{{{title}}}</h2>
+    <h3 class="entry-title">{{{title}}}</h3>
     <section class="entry-meta">
         <span class="status">
-        	Published {{date created_at timeago="True"}}
+        	{{#compare status 'published'}}
+        		<span class="published">Published {{date updated_at timeago="True"}}</span>
+        	{{/compare}}
+
+        	{{#compare status 'draft'}}
+        		<span class="draft">Draft</span>
+        	{{/compare}}
         </span>
     </section>
 </a>
