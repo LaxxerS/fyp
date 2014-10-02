@@ -39,6 +39,20 @@
 
     <main role="main" id="main">
         {{{body}}}
+
+    <aside class="notifications">
+                {{#if error}}
+        <section class="error-notification">
+            <p>{{error}}</p>    
+        </section>
+        {{/if}}
+
+        {{#if success}}
+            <p>{{success}}</p>
+        {{/if}}
+    </aside>
+
+
     </main>
     <link rel='stylesheet' href='/x/scripts/vendors/css/nprogress.css'/>
     <link rel='stylesheet' href='/x/scripts/vendors/css/normalize.css'/>

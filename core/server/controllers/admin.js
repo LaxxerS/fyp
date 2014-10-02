@@ -22,7 +22,7 @@ adminControllers = {
 	},
 
 	content: function(req, res) {
-		res.render('content');
+		res.render('content',  {error: req.flash('error')});	
 	},
 
 	editor: function(req, res) {

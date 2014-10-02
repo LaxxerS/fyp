@@ -28,7 +28,6 @@ function init() {
 	// For Development
 	server.use('/x/scripts', express.static(path.join(__dirname, '../client/')));
 
-
 	// ## Initialize
 	models.init();
 
