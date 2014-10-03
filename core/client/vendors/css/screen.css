@@ -193,7 +193,6 @@ input[type="text"]:focus {
 }
 
 /*  CONTENT LIST AND PREVIEW  */
-
 .content-list {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -411,8 +410,6 @@ input[type="text"]:focus {
 }
 
 /* RENDERED-MARKDOWN / HTML PREVIEW */ 
-
-
 .rendered-markdown .html-entry {
 	position: absolute;
 	font-family: Georgia;
@@ -449,6 +446,66 @@ input[type="text"]:focus {
 	padding-right: 8px;
 }
 
+/* SETTINGS */
+.settings-list {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	position: absolute;
+	width: 25%;
+	background: white;
+	height: 100%;
+	border-right: #edece4 1px solid;
+}
+
+.settings-list .active {
+	font-weight: bold;
+}
+
+.settings-list .settings-menu ul {
+	list-style: none;
+	padding: 0;
+}
+
+.settings-list .settings-menu ul:first-child {
+	border-top: #EDECE4 1px solid;
+}
+
+.settings-list .settings-menu ul li {
+    margin: 0;
+    padding: 0;
+    border-bottom: #EDECE4 1px solid;
+    position: relative;	
+}
+
+.settings-list .settings-menu ul li a {
+	display: block;
+	padding: 15px 25px 15px 25px;
+	color: black;
+	text-decoration: none;
+	word-wrap: break-word;
+	opacity: .5;
+}
+
+.settings-list .settings-menu ul li a:hover {
+	text-decoration: none; 
+	background: #F6F6F7;
+	opacity: 1;
+}
+
+
+.settings-content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	position: absolute;
+	left: 25%;
+	width: 75%;
+	background: white;
+	height: 100%;
+}
+
+
 /* UTIL CLASSES */
 .fade {
 	-webkit-transition: .5s;
@@ -464,6 +521,13 @@ input[type="text"]:focus {
 .dark {
 	background: #1C2021;
 }
+
+.title {
+	font-weight: lighter;
+	font-size: 25px;
+	padding-left: 25px;
+}
+
 
 /* Normal Fade In effect */
 @keyframes fadein {

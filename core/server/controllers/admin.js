@@ -27,6 +27,10 @@ adminControllers = {
 
 	editor: function(req, res) {
 		res.render('editor');
+	},
+
+	settings: function(req, res, next) {
+		res.render('settings');
 	}
 }
 

@@ -12,4 +12,5 @@ module.exports = function(server) {
 	server.get('/admin/content/', middleware.redirectToSignin, admin.content);
 	server.get('/admin/editor(/:id)/', admin.editor);
 	server.get('/admin/editor/', admin.editor);
+	server.get('/admin/settings*', admin.settings);
 }

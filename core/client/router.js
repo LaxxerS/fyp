@@ -7,7 +7,8 @@
 			'': 'blog',
 			'signin/': 'login',
 			'content/': 'blog',
-			'editor(/:id)/': 'editor'
+			'editor(/:id)/': 'editor',
+			'settings(/:pane)/': 'settings'
 		},
 
 		login: function() {
