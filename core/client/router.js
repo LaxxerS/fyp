@@ -39,6 +39,20 @@
                 App.currentView = new App.Views.Editor({ el: '#main', model: post });
                 NProgress.done();
             }
+		},
+
+		settings: function(pane) {
+			if(!pane) {
+				this.navigate('/settings/general/', {
+					trigger: true,
+					replace: true
+				});
+				return;
+			}
+
+            if (!App.currentView || !(App.currentView instanceof Ghost.Views.Settings)) {
+                App.currentView = new App.Views.Settings({ el: '#main', pane: pane });
+            }
 		}
 		
 	});

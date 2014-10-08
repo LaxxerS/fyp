@@ -76,3 +76,12 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   buffer += "</div>\r\n";
   return buffer;
   });
+
+this["JST"]["settings/sidebar"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<header>\r\n    <h1 class=\"title\">Settings</h1>\r\n</header>\r\n<nav class=\"settings-menu\">\r\n    <ul>\r\n        <li class=\"general active\"><a href=\"#general\" class=\"fade\"><i class=\"fa fa-cog\" style=\"padding-right: 2em;\"></i> General</a></li>\r\n        <li class=\"users\"><a href=\"#user\" class=\"fade\"><i class=\"fa fa-user\" style=\"padding-right: 2em;\"></i> User</a></li>\r\n    </ul>\r\n</nav>";
+  });

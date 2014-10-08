@@ -447,7 +447,7 @@ input[type="text"]:focus {
 }
 
 /* SETTINGS */
-.settings-list {
+.settings-sidebar {
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -458,27 +458,32 @@ input[type="text"]:focus {
 	border-right: #edece4 1px solid;
 }
 
-.settings-list .active {
+.settings-sidebar .settings-menu .active {
 	font-weight: bold;
 }
 
-.settings-list .settings-menu ul {
+.settings-sidebar .settings-menu .active a {
+	background: #F6F6F7;
+	opacity: 1;
+}
+
+.settings-sidebar .settings-menu ul {
 	list-style: none;
 	padding: 0;
 }
 
-.settings-list .settings-menu ul:first-child {
+.settings-sidebar .settings-menu ul:first-child {
 	border-top: #EDECE4 1px solid;
 }
 
-.settings-list .settings-menu ul li {
+.settings-sidebar .settings-menu ul li {
     margin: 0;
     padding: 0;
     border-bottom: #EDECE4 1px solid;
     position: relative;	
 }
 
-.settings-list .settings-menu ul li a {
+.settings-sidebar .settings-menu ul li a {
 	display: block;
 	padding: 15px 25px 15px 25px;
 	color: black;
@@ -487,7 +492,7 @@ input[type="text"]:focus {
 	opacity: .5;
 }
 
-.settings-list .settings-menu ul li a:hover {
+.settings-sidebar .settings-menu ul li a:hover {
 	text-decoration: none; 
 	background: #F6F6F7;
 	opacity: 1;
