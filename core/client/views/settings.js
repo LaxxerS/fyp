@@ -3,7 +3,7 @@
 
 	var Settings = {};
 
-	App.Views.Settings = Backbone.View.extend({
+	App.Views.Settings = App.View.extend({
 		initialize: function(options) {
 			this.listenTo(App.router, 'route:settings', this.changePane);
 			
@@ -22,7 +22,7 @@
 		}
 	});
 
-	Settings.Sidebar = Backbone.View.extend({
+	Settings.Sidebar = App.View.extend({
 		initialize: function(options) {
 			this.render();
 			this.menu = this.$('.settings-menu');
@@ -49,6 +49,12 @@
 			}
 
 			this.setActive(id);
+			this.pane = new Settings[id]({ el: '.settings-wrapper' });
+			this.renderPane();
+		},
+
+		renderPane: function() {
+			this.pane.render();
 		},
 
 		setActive: function(id) {
@@ -56,38 +62,28 @@
 			this.menu.find('a[href=#' + id + ']').parent().addClass('active');
 		},
 
-		template: function (data) {
-            return JST[this.templateName](data);
-        },
-
-        templateData: function () {
-            if (this.model) {
-                return this.model.toJSON();
-            }
-
-            if (this.collection) {
-                return this.collection.toJSON();
-            }
-
-            return {};
-        },
-
-        render: function () {
-            if (_.isFunction(this.beforeRender)) {
-                this.beforeRender();
-            }
-
-            this.$el.html(this.template(this.templateData()));
-
-            if (_.isFunction(this.afterRender)) {
-                this.afterRender();
-            }
-
-            return this;
-        },
-
         templateName: 'settings/sidebar'
 
 
-	})
+	});
+
+	Settings.Pane = App.View.extend({
+		render: function() {
+			this.$el.hide();
+			App.View.prototype.render.call(this);
+			this.$el.fadeIn(300);
+		}
+	});
+
+	Settings.general = Settings.Pane.extend({
+		id: "general",
+
+		templateName: 'settings/general'
+	});
+
+	Settings.user = Settings.Pane.extend({
+		id: "user",
+
+		templateName: 'settings/user'
+	});
 } ());

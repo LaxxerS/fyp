@@ -5,14 +5,14 @@
 		ContentItem,
 		PreviewContainer;
 
-	App.Views.Blog = Backbone.View.extend({
+	App.Views.Blog = App.View.extend({
 		initialize: function() {
 			new PreviewContainer({ el: '.js-content-preview', collection: this.collection }).render();
             new ContentList({ el: '.js-content-list', collection: this.collection }).render();
 		}
 	});
 
-	ContentList = Backbone.View.extend({
+	ContentList = App.View.extend({
 
 		isLoading: false,
 
@@ -43,7 +43,7 @@
 		}
 	});
 	
-	ContentItem = Backbone.View.extend({
+	ContentItem = App.View.extend({
 		tagName: 'li',
 
 		active: false,
@@ -81,19 +81,11 @@
 
         templateData: function () {
             return _.extend({active: this.active}, this.model.toJSON());
-        },
+        }
 
-		template: function(data) {
-			return JST[this.templateName](data);
-		},
-
-		render: function() {
-			this.$el.html(this.template(this.templateData()));
-			return this;
-		},
 	});
 
-	PreviewContainer = Backbone.View.extend({
+	PreviewContainer = App.View.extend({
 		templateName: 'preview',
 
 		activeId: null,
@@ -107,23 +99,7 @@
                 this.activeId = id;
                 this.render();
             }
-        },
-        
-        templateData: function() {
-            if (this.model) {
-                return this.model.toJSON();
-            }
-
-            if (this.collection) {
-                return this.collection.toJSON();
-            }
-
-            return {};
-        },
-
-		template: function(data) {
-			return JST[this.templateName](data);
-		},
+        },    
 
 		render: function() {
 		   	this.model = this.collection.get(this.activeId);

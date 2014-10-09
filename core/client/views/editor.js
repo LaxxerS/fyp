@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	App.Views.Editor = Backbone.View.extend({
+	App.Views.Editor = App.View.extend({
         events: {
             'click #help' : 'showHelp',
             'click #btn-publish' : 'savePost'
