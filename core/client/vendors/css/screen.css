@@ -649,6 +649,9 @@ input[type="text"].entry-title:focus {
 	padding-left: 140px;
 }
 
+.hidden {
+	display: none;
+}
 
 /* Normal Fade In effect */
 @keyframes fadein {
@@ -691,7 +694,8 @@ input[type="text"].entry-title:focus {
 	z-index: 980;
 	width: 300px; 
 }
-.error-notification {
+
+.notification {
 	-webkit-animation: fadein 2s; 
 	   -moz-animation: fadein 2s; 
 	        animation: fadein 2s;
@@ -701,20 +705,20 @@ input[type="text"].entry-title:focus {
 	width: 100%;
 	padding: 10px 43px 10px 57px;
 	margin: 0 0 15px 0;
-	color: rgba(255, 255, 255, 0.9);
-	background: #e25440;
+	min-height: 40px;
+	color: rgba(255, 255, 255, 0.9);		
 	position: relative;
 	box-shadow: rgba(0, 0, 0, 0.05) 0 1px 5px;
+	font-size: 13px;
 }
 
-.error-notification:before {
+.notification:before {
     vertical-align: -7%;
     text-transform: none;
     speak: none;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     font-family:'FontAwesome';
-	content: "\f06a";
     position: absolute;
     top: 0;
     left: 0;
@@ -723,13 +727,57 @@ input[type="text"].entry-title:focus {
     box-sizing: border-box;
     height: 100%;
     width: 44px;
-    padding: 17px 15px;
+    padding: 14px 15px;
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
     background: rgba(0, 0, 0, 0.1);
 }
 
+.error-notification {
+	background: #e25440;
+}
 
+.error-notification:before {
+	content: "\f06a";  
+}
+
+.success-notification {
+	background: #6DCD5F
+}
+
+.success-notification:before {
+	content: "\f058";
+}
+
+.info-notification {
+	background: #5ba4e5;
+}
+
+.info-notification:before {
+	content: "\f05a";
+}
+
+.notification .close {
+	display: inline-block;
+	color: rgba(255, 255, 255, 0.6);
+	cursor: pointer; 
+}
+
+.notification .close:after {
+	font-family: "FontAwesome";
+	font-weight: normal;
+	font-style: normal;
+	vertical-align: -7%;
+	text-transform: none;
+	speak: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	content: "\f057";
+	padding: 6px;
+	position: absolute;
+	top: 8px;
+	right: 9px; 
+}
 /* MOBILE */
 
 @media (max-width: 1000px) {

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Admin</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel='stylesheet' href='/x/scripts/vendors/css/normalize.css'/>
     <link rel='stylesheet' href='/x/scripts/vendors/css/screen.css'/>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
@@ -26,7 +26,7 @@
             <ul class="nav-menu">
                 <li><a href="/admin/content/" class="fade">Content</a></li>
                 <li><a href="/admin/editor/" class="fade">New</a></li>
-                <li><a href="" class="fade">Settings</a></li>
+                <li><a href="/admin/settings/" class="fade">Settings</a></li>
                 <li class="pull-right"><a href="" class="fade"><i class="fa fa-power-off fa-lg"></i></a></li>
                 <li class="pull-right"><a href="" class="fade">CHONG ZHI RUI</a></li>
                 <li class="pull-right"><div class="rounded"><img src="http://piq.codeus.net/static/media/userpics/piq_16841_25x25.png"></div></li>
@@ -40,16 +40,8 @@
     <main role="main" id="main">
         {{{body}}}
 
-    <aside class="notifications">
-                {{#if error}}
-        <section class="error-notification">
-            <p>{{error}}</p>    
-        </section>
-        {{/if}}
+    <aside id="notifications" class="notifications">
 
-        {{#if success}}
-            <p>{{success}}</p>
-        {{/if}}
     </aside>
 
 

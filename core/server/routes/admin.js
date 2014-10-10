@@ -10,7 +10,7 @@ module.exports = function(server) {
 	server.get('/admin/signin/', middleware.redirectToDashboard, admin.signin);
 	server.post('/admin/signin/', admin.doSignin);
 	server.get('/admin/content/', middleware.redirectToSignin, admin.content);
-	server.get('/admin/editor(/:id)/', admin.editor);
-	server.get('/admin/editor/', admin.editor);
-	server.get('/admin/settings*', admin.settings);
+	server.get('/admin/editor(/:id)/', middleware.redirectToSignin, admin.editor);
+	server.get('/admin/editor/', middleware.redirectToSignin, admin.editor);
+	server.get('/admin/settings*', middleware.redirectToSignin, admin.settings);
 }

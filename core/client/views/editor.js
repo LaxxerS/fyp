@@ -50,6 +50,11 @@
 
             if(saved) {
                 NProgress.done();
+                App.notifications.addItem({
+                    type: 'success',
+                    message: 'Your post has been published.',
+                    status: 'passive'
+                });
             }
         },
 

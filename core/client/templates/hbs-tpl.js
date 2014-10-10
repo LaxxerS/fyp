@@ -45,6 +45,45 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<form id=\"login\" class=\"login-form\" method=\"post\" novalidate=\"novalidate\" action=\"/admin/signin/\">\r\n    <div class=\"email-wrap\">\r\n        <input class=\"email\" type=\"email\" placeholder=\"Email Address\" name=\"email\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" autofocus />\r\n    </div>\r\n    <div class=\"password-wrap\">\r\n        <input class=\"password\" type=\"password\" placeholder=\"Password\" name=\"password\"/>\r\n    </div>\r\n    <button class=\"btn btn-primary\" type=\"submit\">Login</button>\r\n    <section class=\"meta\">\r\n        <a class=\"forgotten-password\" href=\"#\">Forgotten password?</a>\r\n    </section>\r\n</form>\r\n";
   });
 
+this["JST"]["notification"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  if (helper = helpers.type) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.type); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "-";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  if (helper = helpers.status) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.status); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "-";
+  return buffer;
+  }
+
+  buffer += "<section class=\"notification ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.type), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "notification ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.status), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "notification js-notification\">\r\n  ";
+  if (helper = helpers.message) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.message); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n  <a class=\"close\" href=\"#\"><span class=\"hidden\">Close</span></a>\r\n</section>\r\n\r\n";
+  return buffer;
+  });
+
 this["JST"]["preview"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
