@@ -94,7 +94,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + " &nbsp;&nbsp;\r\n    		|&nbsp;&nbsp;"
     + escapeExpression((helper = helpers.date || (depth0 && depth0.date),options={hash:{
-    'format': ("Do MMMM YYYY")
+    'format': ("MMM Do")
   },data:data},helper ? helper.call(depth0, (depth0 && depth0.created_at), options) : helperMissing.call(depth0, "date", (depth0 && depth0.created_at), options)))
     + " </small>\r\n        <a href=\"/admin/editor/";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }

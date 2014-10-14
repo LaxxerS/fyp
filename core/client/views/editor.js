@@ -9,7 +9,7 @@
 
 
         initialize: function () {
-            var converter = new Showdown.converter(),
+            var converter = new Showdown.converter({extensions: ['ghostgfm']}),
                 markdown = document.getElementsByClassName('markdown-entry')[0],
                 preview = document.getElementsByClassName('html-entry')[0];
 

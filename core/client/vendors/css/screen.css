@@ -95,9 +95,9 @@ input[name="password"] {
     padding: 7px 8px;
     outline: none;
     width: 210px;
-	-webkit-transition: all 0.2s ease-in-out;
-	   -moz-transition: all 0.2s ease-in-out;
-	        transition: all 0.2s ease-in-out;  
+	-webkit-transition: all 0.5s ease-in-out;
+	   -moz-transition: all 0.5s ease-in-out;
+	        transition: all 0.5s ease-in-out;  
 }
 
 input[name="email"]:focus,
@@ -144,17 +144,15 @@ input[type="text"].entry-title:focus {
 	text-shadow: none;
 	border-radius: 0.2em;
 	outline: none;
-	-webkit-transition: .5s;
-	   -moz-transition: .5s;
-	        transition: .5s;	
+	-webkit-transition: all 0.5s ease-in-out;
+	   -moz-transition: all 0.5s ease-in-out;
+	        transition: all 0.5s ease-in-out;  
 }
 
 .btn:hover {
 	text-decoration: none;
-	-webkit-transition: .5s;
-	   -moz-transition: .5s;
-	        transition: .5s;
 }
+
 .btn-primary {
 	background-color: #5ba4e5;
 }
@@ -180,16 +178,13 @@ input[type="text"].entry-title:focus {
 	font-weight: lighter;
 	font-size: 12px;
 	color: #444444;
-	-webkit-transition: .5s;
-	   -moz-transition: .5s;
-		    transition: .5s;
+	-webkit-transition: all 0.5s ease-in-out;
+	   -moz-transition: all 0.5s ease-in-out;
+	        transition: all 0.5s ease-in-out;  
 }
 
 .meta a:hover {
 	color: #dddddd;
-	-webkit-transition: .5s;
-	   -moz-transition: .5s;
-	        transition: .5s;
 }
 
 /*  CONTENT LIST AND PREVIEW  */
@@ -314,15 +309,15 @@ input[type="text"].entry-title:focus {
 }
 
 .content-preview .wrapper {
-	font-size: 18px;
+	font-family: Ehrhardt;
+	letter-spacing: -0.5px;
+	font-size: 20px;
+	text-rendering: optimizeLegibility;
+	line-height: 150%;
+	color: #333;
 	padding: 80px 60px;
-	word-break: break-word;
-	text-align: justify;
 	position: absolute;
 	overflow: auto;
-	position: absolute;
-	line-height: 170%;
-	word-break: break-all;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -340,6 +335,7 @@ input[type="text"].entry-title:focus {
 	width: 100%;
 	background: white;
 	height: 55px;
+	font-family: Ehrhardt;
 }	
 
  /* EDITOR MARKDOWN AND HTML */
@@ -412,11 +408,13 @@ input[type="text"].entry-title:focus {
 /* RENDERED-MARKDOWN / HTML PREVIEW */ 
 .rendered-markdown .html-entry {
 	position: absolute;
-	font-family: Georgia;
-	font-size: 19px;
-	padding: 25px 45px 45px 45px;
+	font-family: Ehrhardt;
+	letter-spacing: -0.5px;
+	font-size: 20px;
+	text-rendering: optimizeLegibility;
 	line-height: 150%;
-	word-break: break-all;
+	color: #333;
+	padding: 25px 45px 45px 45px;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -637,6 +635,7 @@ input[type="text"].entry-title:focus {
 }
 
 .title {
+	font-family: 'Open Sans', sans-serif;
 	font-weight: lighter;
 	font-size: 25px;
 	padding-left: 25px;
@@ -851,3 +850,11 @@ form label {
 	color: #aaa9a2;
 	text-align: right; 
  }
+
+strong {
+	font-family: 'serif';
+}
+
+h1 {
+	font-family: 'serif';
+}
