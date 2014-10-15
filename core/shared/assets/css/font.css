@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Ehrhardt';
+	font-style: normal;
+	font-weight: normal;
+	font-stretch: normal;
+    src: url('../fonts/Ehrhardt MT Std.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Ehrhardt';
+	font-style: italic;
+	font-weight: normal;
+	font-stretch: normal;
+    src: url('../fonts/Ehrhardt MT Std Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Ehrhardt';
+	font-style: bold;
+	font-weight: bold;
+	font-stretch: normal;
+    src: url('../fonts/Ehrhardt MT Std Semibold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Ehrhardt';
+	font-style: italic;
+	font-weight: bold;
+	font-stretch: normal;
+    src: url('../fonts/Ehrhardt MT Std Semibold Italic.woff') format('woff');
+}

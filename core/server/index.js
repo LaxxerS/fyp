@@ -27,6 +27,7 @@ function init() {
 	// ## Static folder
 	// For Development
 	server.use('/x/scripts', express.static(path.join(__dirname, '../client/')));
+	server.use('/x/shared', express.static(path.join(__dirname, '../shared/')));
 
 	// ## Initialize
 	models.init();

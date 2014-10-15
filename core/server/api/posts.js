@@ -11,7 +11,7 @@ posts = {
 			return dataProvider.Post.findAll().then(function(result) {
             var i = 0,
                 omitted = result.toJSON();
-
+                
             for (i = 0; i < omitted.length; i = i + 1) {
                 omitted[i].author = _.omit(omitted[i].author, Blacklist);
             }

@@ -1,6 +1,7 @@
 var myBookshelf = require('./base'),
 	_			= require('lodash'),
 	User        = require('./user').User,
+    slugs        = require('slugs'),
 	Showdown    = require('showdown'),
  	converter   = new Showdown.converter(),
  	
@@ -23,6 +24,7 @@ Post = myBookshelf.Model.extend({
 
 	saving: function() {
 		this.set('html', converter.makeHtml(this.get('markdown')));
+        this.set('slug', slugs(this.get('title')));
 	},
 
     creating: function (newPage, attr, options) {
