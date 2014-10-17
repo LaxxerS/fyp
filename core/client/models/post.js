@@ -6,7 +6,7 @@
 	});
 
 	App.Collections.Posts = Backbone.Collection.extend({
-		url: App.paths.api + '/posts',
+		url: App.paths.api + '/posts/',
 		model: App.Models.Post
 	});
 

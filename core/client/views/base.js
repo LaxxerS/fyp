@@ -20,16 +20,7 @@
         },
 
         render: function () {
-            if (_.isFunction(this.beforeRender)) {
-                this.beforeRender();
-            }
-
             this.$el.html(this.template(this.templateData()));
-
-            if (_.isFunction(this.afterRender)) {
-                this.afterRender();
-            }
-
             return this;
         }
 	});
@@ -80,7 +71,7 @@
             $notification.animate({height: height}, 250, function () {
                 $(this)
                     .css({height: "auto"})
-                    .fadeIn(250);
+                    .fadeIn(750);
             });
         },
 
@@ -92,7 +83,7 @@
         removeItem: function(e) {
             e.preventDefault();
             var self = e.currentTarget;
-            $(self).fadeOut(550, function () {
+            $(self).fadeOut(750, function () {
                 $(this)
                     .show()
                     .css({height: "auto"})
@@ -106,7 +97,7 @@
         closePassive: function(e) {
             $(e.currentTarget)
                 .parent()
-                .fadeOut(550)
+                .fadeOut(750)
                 .slideUp(250);
             this.model = [];
         }

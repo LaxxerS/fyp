@@ -122,7 +122,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<header>\r\n    <h1 class=\"title\">General</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success\">Save</button>\r\n    </section>\r\n</header>\r\n\r\n<section class=\"content\">\r\n	<form id=\"settings-general\" novalidate=\"novalidate\">\r\n		<div class=\"form-group\">\r\n			<label for=\"blog-title\">Blog Title</label>\r\n			<input type=\"text\" id=\"blog-title\" />\r\n			<p>The name of your blog</p>\r\n		</div>\r\n\r\n		<div class=\"form-group description-container\">\r\n			<label for=\"blog-description\">Blog Description</label>\r\n			<textarea id=\"blog-description\">";
+  buffer += "<header>\r\n    <h1 class=\"title\">General</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success save\">Save</button>\r\n    </section>\r\n</header>\r\n\r\n<section class=\"content\">\r\n	<form id=\"settings-general\" novalidate=\"novalidate\">\r\n		<div class=\"form-group\">\r\n			<label for=\"blog-title\">Blog Title</label>\r\n			<input type=\"text\" value=\"";
+  if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" id=\"blog-title\" />\r\n			<p>The name of your blog</p>\r\n		</div>\r\n\r\n		<div class=\"form-group description-container\">\r\n			<label for=\"blog-description\">Blog Description</label>\r\n			<textarea id=\"blog-description\">";
   if (helper = helpers.description) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.description); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -142,8 +146,13 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 this["JST"]["settings/user"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  return "<header>\r\n    <h1 class=\"title\">User Profile</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success\">Save</button>\r\n    </section>\r\n</header>";
+  buffer += "<header>\r\n    <h1 class=\"title\">User Profile</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success\">Save</button>\r\n    </section>\r\n</header>\r\n\r\n<section class=\"content\">\r\n	<form id=\"settings-general\" novalidate=\"novalidate\">\r\n		<div class=\"form-group\">\r\n			<label for=\"blog-title\">User Title</label>\r\n			<input type=\"text\" value=\"";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" id=\"blog-title\" />\r\n			<p>The name of your blog</p>\r\n		</div>\r\n</section>";
+  return buffer;
   });

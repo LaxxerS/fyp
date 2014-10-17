@@ -1,6 +1,8 @@
 var knex 	= require('../models/base').knex,
 	Post    = require('../models/post').Post,
 	User 	= require('../models/user').User,
+	Settings = require('../models/settings').Settings,
+
 	posts,
 	init;
 
@@ -32,6 +34,16 @@ user = {
 
 }
 
+setting = { 
+	"name": "title",
+	"value": "My Blog"
+}
+
+setting2 = {
+	"name": "description",
+	"value": "Just a blogging platform."
+}
+
 function PopulateUsers() {
 	return User.add(user).then(function(user) {
 		console.log("userdone");
@@ -42,6 +54,12 @@ function PopulateDefaults(post) {
 	return Post.add(post).then(function(post) {
 		console.log("done");
 	});
+}
+
+function PopulateSettings (setting) {
+	return Settings.add(setting).then(function(setting) {
+		console.log("settingdone");
+	})
 }
 
 init = function() {
@@ -98,7 +116,9 @@ init = function() {
 				t.string('type', 150).defaultTo('core');
 				t.timestamps();
 			}).then(function() {
-				console.log('settings');
+				return PopulateSettings(setting);
+			}).then(function() {
+				return PopulateSettings(setting2);
 			})
 		}
 	});

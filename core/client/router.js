@@ -26,7 +26,7 @@
 
 		editor: function(id) {
             var post = new App.Models.Post({id: id});
-            post.urlRoot = App.paths.api + '/posts';
+            post.urlRoot = App.paths.api + '/posts/';
             if (id) {
                 post.id = id;
                 NProgress.start();
@@ -50,7 +50,7 @@
 				return;
 			}
 
-            if (!App.currentView || !(App.currentView instanceof Ghost.Views.Settings)) {
+            if (!App.currentView || !(App.currentView instanceof App.Views.Settings)) {
                 App.currentView = new App.Views.Settings({ el: '#main', pane: pane });
             }
 		}
