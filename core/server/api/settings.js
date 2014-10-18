@@ -6,26 +6,26 @@ var dataProvider = require('../models'),
 	settingsObject,
 	settingsCollection;
 
-settingsObject = function (settings) {
+settingsObject = function(settings) {
     if (_.isObject(settings)) {
         return _.reduce(settings, function (res, item, key) {
             if (_.isArray(item)) {
                 res[item.name] = item;
             } else {
-                res[item.name] = item.value;
+                if(!isNaN(item.name)) {
+                    delete res[item.name];
+                    console.log('deleted' + res[item.name])
+                } else {
+                    res[item.name] = item.value;
+                }
+
             }
             return res;
         }, {});
     }
-    return (settings.toJSON ? settings.toJSON() : settings).reduce(function (res, item) {
-        if (item.toJSON) { item = item.toJSON(); }
-        if (item.name) { res[item.name] = item.value; }
-        return res;
-
-    }, {});
 };
 
-settingsCollection = function (settings) {
+settingsCollection = function(settings) {
     return _.map(settings, function (value, key) {
         return { name: key, value: value };
     });
@@ -33,9 +33,10 @@ settingsCollection = function (settings) {
 
 settings = {
 	browse: function() {
+        var settings = {};
 		return dataProvider.Settings.findAll().then(function(result) {
-			result = result.toJSON();
-	        return settingsObject(result);
+            result = result.toJSON();
+            return settingsObject(result);
 		});
 	},
 
@@ -43,13 +44,12 @@ settings = {
 
 	},
 
-	edit: function(key, value) {
-		
-        if (_.isObject(key)) {
-        	delete key.id;
-        	
-            key = settingsCollection(key);
+	edit: function(key) {
+        delete key.id;
+        console.log(key);
 
+        if (_.isObject(key)) {
+            key = settingsCollection(key); 
 			return dataProvider.Settings.edit(key);
         }
 	}		

@@ -23,7 +23,6 @@ function init() {
 	server.use(bodyParser.urlencoded({extended: true}));
 	server.use(session({secret: '<mysecret>', saveUninitialized: true, resave: true}));
 	server.use(flash());
-
 	// ## Static folder
 	// For Development
 	server.use('/x/scripts', express.static(path.join(__dirname, '../client/')));

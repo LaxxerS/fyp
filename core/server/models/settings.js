@@ -25,7 +25,7 @@ Settings = myBookshelf.Model.extend({
 		return myBookshelf.Model.add.call(this, newSetting);
 	},
 
-	edit: function(_data) {
+	edit: function(_data, t) {
         var settings = this;
         if (!Array.isArray(_data)) {
             _data = [_data];
@@ -39,12 +39,10 @@ Settings = myBookshelf.Model.extend({
                 if (setting) {
                     return setting.set('value', item.value).save();
                 }
-                return settings.forge({ name: item.name, value: item.value }).save();
+                //return settings.forge({ name: item.name, value: item.value }).save();
 
             });
         });
-
-
 
 	}
 

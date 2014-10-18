@@ -2,6 +2,6 @@
 	'use strict';
 
 	App.Models.Settings = Backbone.Model.extend({
-		url: App.paths.api + '/settings/',
+		url: App.paths.api + '/settings/'
 	});
 }());

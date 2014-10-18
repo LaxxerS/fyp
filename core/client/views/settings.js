@@ -67,7 +67,6 @@
                 model = this.models[this.pane.options.modelName];
                 self.renderPane(model);
             }
-			
 		},
 
 		renderPane: function(model) {
@@ -86,7 +85,9 @@
 	});
 
 	Settings.Pane = App.View.extend({
-
+		options: {
+			modelName: 'Settings',
+		},
 		render: function() {
 			this.$el.hide();
 			App.View.prototype.render.call(this);
@@ -97,35 +98,31 @@
 	Settings.general = Settings.Pane.extend({
 		id: "general",
 
-		options: {
-			modelName: 'Settings',
-		},
-
 		events: {
 			'click .save': 'saveSettings'
 		},
 
 		saveSettings: function() {
 			var self = this,
-				saved,
 				title = this.$('#blog-title').val(),
 				description = this.$('#blog-description').val();
 
 			NProgress.start();
-			saved = this.model.save({
+			this.model.save({
 				title: title,
 				description: description
-			});
-
-			if(saved) {
+			}).then(function() {
 				NProgress.done();
 				App.notifications.addItem({
                     type: 'success',
                     message: 'Your settings have been saved.',
                     status: 'passive'
                 });
-                Backbone.history.loadUrl();
-			}
+			}).then(function() {
+				self.render();
+			})
+
+
 
 		},
 
