@@ -24,7 +24,6 @@ myBookshelf.Model = myBookshelf.Model.extend({
 
     add: function(newObj) {
         var instance = this.forge(newObj);
-
         return instance.save(null);
     },
 

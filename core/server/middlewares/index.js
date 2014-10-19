@@ -37,9 +37,10 @@ function manageThemePath(req, res, next) {
 
 module.exports = function(server) {
 	expressServer = server;
+	
+	expressServer.use('/assets/css/', express.static(path.join(contentPath, 'theme/default/assets/css')));
+	expressServer.use('/assets/font/', express.static(path.join(contentPath, 'theme/default/assets/font')));
 	expressServer.use(manageThemePath);
-	expressServer.use('/assets', express.static(path.join(contentPath, 'theme/default/assets')));
-
 	expressServer.use(slashes(true, {headers: {'Cache-Control': 'public, max-age=' + ONE_YEAR_S}}));
 }
 

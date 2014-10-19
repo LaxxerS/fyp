@@ -19,6 +19,15 @@ Settings = myBookshelf.Model.extend({
         return myBookshelf.Model.findAll.call(this, options);
     },
 
+    findOne: function(_key, options) {
+    	options = options || {};
+		if (!_.isObject(_key)) {
+            _key = { name: _key };
+        }
+
+    	return myBookshelf.Model.findOne.call(this, _key, options);
+    },
+
     add: function(newSetting) {
 		var self = this;
 

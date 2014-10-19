@@ -1,0 +1,34 @@
+{{!< default}}
+
+<header class="site-header" style="background-image: url(http://www.flash-screen.com/free-wallpaper/majestic-hd-landscape-facebook-timeline-cover-collection/golden-field-hd-landscape-facebook-timeline-cover,1366x768,66297.jpg)">
+    <div class="overlay"></div>
+    <div class="vertical">
+        <div class="site-header-content inner">
+        <h1 class="blog-title">{{blog_title}}</h1>
+        <h2 class="blog-description">{{blog_description}}</h2>
+        </div>
+    </div>
+</header>
+
+<main class="posts" role="main">
+
+    {{#each posts}}
+
+    <article class="post-wrapper">
+
+        <h3 class="post-title"><a href="{{slug}}/">{{title}}</a></h3>
+
+        <section class="post-content">
+            <p>{{excerpt}}&hellip;</p>
+            <p><a href="{{slug}}/">Read More &#187;</a></p>
+        </section>
+
+        <section class="post-footer">
+            <span class="author">{{author.name}}</span>
+            <span class="post-readtime"><a href="{{slug}}/">{{reading_time}}</a></span>
+        </section>
+    </article>
+
+    {{/each}}
+
+</main>

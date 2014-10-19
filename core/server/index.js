@@ -7,9 +7,10 @@ var express 	 = require('express'),
 	cookieParser = require('cookie-parser'),
 	bodyParser	 = require('body-parser'),
 
-	middleware   = require('./middlewares'),
+	middlewares  = require('./middlewares'),
 	models		 = require('./models'),
-	routes 	  	 = require('./routes');
+	routes 	  	 = require('./routes'),
+	helpers      = require('./helpers');
 
 
 
@@ -31,8 +32,12 @@ function init() {
 	// ## Initialize
 	models.init();
 
-	middleware(server);
+	// ## Midleware
+	middlewares(server);
 	
+	//## Helpers
+	helpers.loadCoreHelpers(adminHbs);
+
 	// ## Routing
 
 	// Setup api routes

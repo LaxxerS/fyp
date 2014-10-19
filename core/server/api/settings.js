@@ -40,8 +40,14 @@ settings = {
 		});
 	},
 
-	read: function() {
-
+	read: function(args) {
+        return dataProvider.Settings.findOne(args).then(function(result) {
+            if (result) {
+                result = result.toJSON();
+                return result;
+            }
+            return new Error('Settings not found');
+        });
 	},
 
 	edit: function(key) {

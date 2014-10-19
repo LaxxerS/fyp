@@ -313,6 +313,7 @@ input[type="text"].entry-title:focus {
 	letter-spacing: -0.5px;
 	font-size: 20px;
 	text-rendering: optimizeLegibility;
+	text-align: justify;
 	line-height: 150%;
 	color: #333;
 	padding: 80px 60px;
@@ -390,6 +391,7 @@ input[type="text"].entry-title:focus {
 	margin: 0;
 	padding: 0;
 	position: absolute;
+	text-align: justify;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -412,6 +414,7 @@ input[type="text"].entry-title:focus {
 	letter-spacing: -0.5px;
 	font-size: 20px;
 	text-rendering: optimizeLegibility;
+	text-align: justify;
 	line-height: 150%;
 	color: #333;
 	padding: 25px 45px 45px 45px;
