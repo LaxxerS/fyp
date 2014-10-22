@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    Handlebars.registerHelper('date', function (context, options) {
+    Handlebars.registerHelper('date', function(context, options) {
         if (!options && context.hasOwnProperty('hash')) {
             options = context;
             context = undefined;

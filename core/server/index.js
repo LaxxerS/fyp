@@ -6,7 +6,7 @@ var express 	 = require('express'),
 	morgan		 = require('morgan'),
 	cookieParser = require('cookie-parser'),
 	bodyParser	 = require('body-parser'),
-
+	busboy       = require('connect-busboy'),
 	middlewares  = require('./middlewares'),
 	models		 = require('./models'),
 	routes 	  	 = require('./routes'),
@@ -24,6 +24,7 @@ function init() {
 	server.use(bodyParser.urlencoded({extended: true}));
 	server.use(session({secret: '<mysecret>', saveUninitialized: true, resave: true}));
 	server.use(flash());
+	server.use(busboy());
 	// ## Static folder
 	// For Development
 	server.use('/x/scripts', express.static(path.join(__dirname, '../client/')));

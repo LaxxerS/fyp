@@ -11,23 +11,18 @@ var downsize = require('downsize'),
 
     registerHelpers;
 
-function update() {
-    when.all([
-        api.settings.read('title'),
-        api.settings.read('description')
-    ]).then(function(globals) {
-        themeConfig.title = globals[0].value;
-        themeConfig.description = globals[1].value;
-        return;
-    });
-}
-
 coreHelpers.blog_title = function(options) {
-    return themeConfig.title;
-};
+    when(api.settings.read('title')).then(function(result) {
+        themeConfig.title = result.value;
+    });
+        return themeConfig.title;
+};  
 
 coreHelpers.blog_description = function(options) {
-    return themeConfig.description;
+    when(api.settings.read('description')).then(function(result) {
+        themeConfig.description = result.value;
+    });
+        return themeConfig.description;
 };
 
 coreHelpers.excerpt = function (options){
@@ -89,8 +84,6 @@ function registerThemeHelper(name, fn) {
 registerHelpers = function (adminHbs) {
 
     coreHelpers.adminHbs = adminHbs;
-
-    update();
 
     registerThemeHelper('blog_title', coreHelpers.blog_title);
     registerThemeHelper('blog_description', coreHelpers.blog_description);

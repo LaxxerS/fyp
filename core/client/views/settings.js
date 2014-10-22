@@ -99,7 +99,47 @@
 		id: "general",
 
 		events: {
-			'click .save': 'saveSettings'
+			'click .save': 'saveSettings',
+			'click .upload': 'showUpload',
+			'change input[type=file]': 'uploadFile'
+		},
+
+		showUpload: function() {
+			$('input[type=file]').click();
+		},
+
+		uploadFile: function(e) {
+			e.preventDefault();
+			NProgress.start();
+			var fileSelect = document.getElementById('fileupload'),
+					button = document.getElementsByClassName('upload')[0],
+					 files = fileSelect.files,
+			      formData = new FormData();
+
+			for (var i = 0; i < files.length; i++) {
+			  var file = files[i];
+			  // Check the file type.
+			  if (!file.type.match('image.*')) {
+			    continue;
+			  }
+			  // Add the file to the request.
+			  formData.append('photos[]', file, file.name);
+			}
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'http://localhost:3000/admin/upload/', true);
+
+			xhr.onload = function () {
+			  if (xhr.status === 200) {
+			    // File(s) uploaded.
+			    button.innerHTML = 'Upload';
+			  } else {
+			    alert('An error occurred!');
+			  }
+			};
+
+			xhr.send(formData);
+			NProgress.done();
 		},
 
 		saveSettings: function() {
@@ -121,9 +161,6 @@
 			}).then(function() {
 				self.render();
 			})
-
-
-
 		},
 
 		templateName: 'settings/general'

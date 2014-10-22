@@ -13,4 +13,5 @@ module.exports = function(server) {
 	server.get('/admin/editor(/:id)/', middleware.redirectToSignin, admin.editor);
 	server.get('/admin/editor/', middleware.redirectToSignin, admin.editor);
 	server.get('/admin/settings*', admin.settings);
+	server.post('/admin/upload/', admin.upload);
 }

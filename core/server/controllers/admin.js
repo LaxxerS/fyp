@@ -1,4 +1,6 @@
-var api = require('../api'),
+var api    = require('../api'),
+	fs     = require('fs'),
+	path   = require('path'),
 
 adminControllers;
 
@@ -31,6 +33,20 @@ adminControllers = {
 
 	settings: function(req, res, next) {
 		res.render('settings');
+	},
+
+	upload: function(req, res) {
+	    var fstream;
+	    req.pipe(req.busboy);
+	    req.busboy.on('file', function (fieldname, file, filename) {
+	        console.log("Uploading: " + filename); 
+	        saveTo = path.resolve(path.resolve(__dirname, '../../../'), 'core/shared/assets/img/');
+	        fstream = fs.createWriteStream(saveTo + '/' + filename);
+	        file.pipe(fstream);
+	        fstream.on('close', function () {
+	            res.redirect('back');
+	        });
+	    });
 	}
 }
 

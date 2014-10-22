@@ -292,22 +292,22 @@ a {
 }
 
 .blog-title {
-    margin: 10px 0 10px 0;
-    font-size: 5rem;
-    letter-spacing: -1px;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  margin: 10px 0 10px 0;
+  font-size: 5rem;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.1);
 }
 
 .blog-description {
-    margin: 0;
-    font-size: 1.8rem;
-    line-height: 1.5em;
-    font-weight: 300;
-    font-family: 'serif';
-    letter-spacing: 0;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.5em;
+  font-weight: 300;
+  font-family: 'serif';
+  letter-spacing: 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 
 .posts .post-wrapper {
@@ -378,7 +378,7 @@ a {
   ========================================================================== */
 
 .post-template .post-header {
-  padding: 4%;
+  padding: 4% 0 0 4%;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
 }
@@ -407,6 +407,10 @@ a {
   max-width: 700px;
   margin: 4rem auto;
   margin-top: 0;
+}
+
+.post-template .post-title {
+  text-align: center;
 }
 
 .post-template .post-meta, .post-template .post-readtime {
