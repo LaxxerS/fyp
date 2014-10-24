@@ -40,13 +40,17 @@ adminControllers = {
 	    req.pipe(req.busboy);
 	    req.busboy.on('file', function (fieldname, file, filename) {
 	        console.log("Uploading: " + filename); 
-	        saveTo = path.resolve(path.resolve(__dirname, '../../../'), 'core/shared/assets/img/');
+	        saveTo = path.resolve(path.resolve(__dirname, '../../../'), 'core/shared/img/');
 	        fstream = fs.createWriteStream(saveTo + '/' + filename);
 	        file.pipe(fstream);
 	        fstream.on('close', function () {
 	            res.redirect('back');
 	        });
 	    });
+
+	    req.busboy.on('finish', function() {
+	    	console.log('teet');
+	    })
 	}
 }
 

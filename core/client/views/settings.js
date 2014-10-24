@@ -131,15 +131,22 @@
 
 			xhr.onload = function () {
 			  if (xhr.status === 200) {
-			    // File(s) uploaded.
-			    button.innerHTML = 'Upload';
+			  	NProgress.done();
+				App.notifications.addItem({
+                    type: 'success',
+                    message: 'Your cover image has been uploaded.',
+                    status: 'passive'
+                });
 			  } else {
-			    alert('An error occurred!');
+				App.notifications.addItem({
+                    type: 'error',
+                    message: 'An error has occurred.',
+                    status: 'passive'
+                });
 			  }
 			};
 
 			xhr.send(formData);
-			NProgress.done();
 		},
 
 		saveSettings: function() {
