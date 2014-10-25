@@ -1,7 +1,6 @@
 var dataProvider = require('../models'),
 	_ 		     = require('lodash'),
 	when		 = require('when'),
-
 	settings,
 	settingsObject,
 	settingsCollection;
@@ -52,10 +51,11 @@ settings = {
 
 	edit: function(key) {
         delete key.id;
-        console.log(key);
+        //console.log(key);
 
         if (_.isObject(key)) {
             key = settingsCollection(key); 
+            console.log(key);
 			return dataProvider.Settings.edit(key);
         }
 	}		

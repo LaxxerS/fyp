@@ -114,16 +114,25 @@
 			var fileSelect = document.getElementById('fileupload'),
 					button = document.getElementsByClassName('upload')[0],
 					 files = fileSelect.files,
-			      formData = new FormData();
+			      formData = new FormData(),
+
+			      filename,
+			      _filename,
+			      fileext;
 
 			for (var i = 0; i < files.length; i++) {
 			  var file = files[i];
-			  // Check the file type.
+			 
 			  if (!file.type.match('image.*')) {
 			    continue;
 			  }
-			  // Add the file to the request.
-			  formData.append('photos[]', file, file.name);
+
+			  // Hack to rename file.
+			  filename = file.name;
+			  fileext = filename.split('.');
+			  _filename = 'blog_cover.' + fileext[1];
+			 
+			  formData.append('photos[]', file, _filename);
 			}
 
 			var xhr = new XMLHttpRequest();

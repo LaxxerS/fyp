@@ -1,10 +1,11 @@
 var bookshelf = require('bookshelf'),
 	knex	  = require('knex'),
 	_ 		  = require('lodash'),
+    path      = require('path'),
 
 	myBookshelf;
 
-myBookshelf = bookshelf(knex({ client: 'sqlite3', connection: { filename: "annonymous.db" }}));
+myBookshelf = bookshelf(knex({ client: 'sqlite3', connection: { filename: path.resolve(path.resolve(__dirname, '../../../'), 'contents/data/data.db') }}));
 
 
 myBookshelf.Model = myBookshelf.Model.extend({

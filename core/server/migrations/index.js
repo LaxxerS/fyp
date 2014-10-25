@@ -44,6 +44,11 @@ setting2 = {
 	"value": "Just a blogging platform."
 }
 
+setting3 = {
+	"name": "cover",
+	"value": null
+}
+
 function PopulateUsers() {
 	return User.add(user).then(function(user) {
 		console.log("userdone");
@@ -119,6 +124,8 @@ init = function() {
 				return PopulateSettings(setting);
 			}).then(function() {
 				return PopulateSettings(setting2);
+			}).then(function() {
+				return PopulateSettings(setting3);
 			})
 		}
 	});

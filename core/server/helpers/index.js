@@ -11,19 +11,30 @@ var downsize = require('downsize'),
 
     registerHelpers;
 
-coreHelpers.blog_title = function(options) {
-    when(api.settings.read('title')).then(function(result) {
-        themeConfig.title = result.value;
+function update() {
+    when.all([
+        api.settings.read('title'),
+        api.settings.read('description'),
+        api.settings.read('cover')
+    ]).then(function(results) {
+        themeConfig.title = results[0].value;
+        themeConfig.description = results[1].value;
+        themeConfig.cover = results[2].value;
+        return;
     });
-        return themeConfig.title;
+}
+
+coreHelpers.blog_title = function(options) {
+    return themeConfig.title;
 };  
 
 coreHelpers.blog_description = function(options) {
-    when(api.settings.read('description')).then(function(result) {
-        themeConfig.description = result.value;
-    });
-        return themeConfig.description;
+    return themeConfig.description;
 };
+
+coreHelpers.blog_cover = function(options) {
+    return themeConfig.cover;
+}
 
 coreHelpers.excerpt = function (options){
     var truncateOptions = (options || {}).hash || {},
@@ -85,12 +96,16 @@ registerHelpers = function (adminHbs) {
 
     coreHelpers.adminHbs = adminHbs;
 
+    update();
+
     registerThemeHelper('blog_title', coreHelpers.blog_title);
     registerThemeHelper('blog_description', coreHelpers.blog_description);
+    registerThemeHelper('blog_cover', coreHelpers.blog_cover);
     registerThemeHelper('excerpt', coreHelpers.excerpt);
     registerThemeHelper('date', coreHelpers.date);
     registerThemeHelper('reading_time', coreHelpers.reading_time);
 }
 
 module.exports = coreHelpers;
+module.exports.update = update;
 module.exports.loadCoreHelpers = registerHelpers;

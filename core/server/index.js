@@ -7,7 +7,10 @@ var express 	 = require('express'),
 	cookieParser = require('cookie-parser'),
 	bodyParser	 = require('body-parser'),
 	busboy       = require('connect-busboy'),
+	when         = require('when'),
+
 	middlewares  = require('./middlewares'),
+
 	models		 = require('./models'),
 	routes 	  	 = require('./routes'),
 	helpers      = require('./helpers');
@@ -30,32 +33,25 @@ function init() {
 	server.use('/x/scripts', express.static(path.join(__dirname, '../client/')));
 	server.use('/x/shared', express.static(path.join(__dirname, '../shared/')));
 
-	// ## Initialize
-	models.init();
+	// ## Models and Migrations
+	models.init(),
 
-	// ## Midleware
-	middlewares(server);
-	
-	//## Helpers
-	helpers.loadCoreHelpers(adminHbs);
+	// ## Middlewares
+	middlewares(server)
 
 	// ## Routing
-
-	// Setup api routes
 	routes.api(server);
-	// Setup admin routes
+
 	routes.admin(server);
-	// Setup frontend routes
+	
 	routes.frontend(server);
 
-
-	// ## Setup views
-
-
+	// ## Helpers
+	helpers.update();
+	helpers.loadCoreHelpers(adminHbs);		
 
 	// ## Boot server
 	server.set('port', process.env.PORT || 3000);
-
 	server.listen(server.get('port'), function() {
 	    console.log('Express server listening on port ' + server.get('port'));
 	});

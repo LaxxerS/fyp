@@ -36,11 +36,15 @@ adminControllers = {
 	},
 
 	upload: function(req, res) {
-	    var fstream;
+	    var fstream,
+	    	saveTo,
+	    	_filename;
 	    req.pipe(req.busboy);
 	    req.busboy.on('file', function (fieldname, file, filename) {
+	    	_filename = filename;
 	        console.log("Uploading: " + filename); 
 	        saveTo = path.resolve(path.resolve(__dirname, '../../../'), 'core/shared/img/');
+	        console.log(saveTo);
 	        fstream = fs.createWriteStream(saveTo + '/' + filename);
 	        file.pipe(fstream);
 	        fstream.on('close', function () {
@@ -49,8 +53,14 @@ adminControllers = {
 	    });
 
 	    req.busboy.on('finish', function() {
-	    	console.log('teet');
-	    })
+	    	if(_filename === 'blog_cover.png' || _filename === 'blog_cover.jpg'  || _filename === 'blog_cover.jpeg') {
+				var data = {
+				'cover': _filename
+				}
+				api.settings.edit(data);
+	    	}
+	    });
+
 	}
 }
 

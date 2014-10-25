@@ -41,15 +41,16 @@ Settings = myBookshelf.Model.extend({
         }
 
 		return when.map(_data, function (item) {
+            var helpers = require('../helpers');
             // Accept an array of models as input
             if (item.toJSON) { item = item.toJSON(); }
             return settings.forge({ name: item.name }).fetch().then(function (setting) {
-
                 if (setting) {
-                    return setting.set('value', item.value).save();
+                    return setting.set('value', item.value).save().then(function() {
+                        // Update helpers' theme cache
+                        helpers.update();
+                    })
                 }
-                //return settings.forge({ name: item.name, value: item.value }).save();
-
             });
         });
 

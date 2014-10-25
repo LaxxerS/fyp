@@ -62,7 +62,6 @@
         },
 
         renderItem: function (item) {
-            console.log(this.model);
             var itemView = new App.Views.Notification({ model: item }),
                 height,
                 $notification = $(itemView.render().el);
