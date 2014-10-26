@@ -197,6 +197,7 @@ input[type="text"].entry-title:focus {
 	background: white;
 	height: 100%;
 	border-right: #edece4 2px solid;
+	-webkit-overflow-scrolling: touch; 
 }		
 
 .content-list ol {
@@ -313,6 +314,7 @@ input[type="text"].entry-title:focus {
 	letter-spacing: -0.5px;
 	font-size: 20px;
 	text-rendering: optimizeLegibility;
+	-webkit-overflow-scrolling: touch; 
 	text-align: justify;
 	line-height: 150%;
 	color: #333;
@@ -552,6 +554,87 @@ input[type="text"].entry-title:focus {
 	height: 60px;
 }
 
+.settings-content .user-profile-header {
+	padding-top: 8px;
+	position: relative;
+	height: 45%;
+	overflow: hidden;
+}
+
+.settings-content .cover-image {
+	width: 100%;
+	overflow: hidden;
+}
+
+.settings-content .edit-cover-image {
+    position: absolute;
+    right: 40px;
+    bottom: 28px;	
+}
+
+.settings-content .user-profile {
+    position: relative;
+    top: -100px;
+    z-index: 1; 	
+}
+
+.settings-content .user-image-holder {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+	position: relative;
+	width: 160px;
+	height: 160px;
+	float: left;
+	text-align: center;
+	border-radius: 100%;
+	overflow: hidden;
+	border: 4px solid #fff;
+	background: #fff;
+	z-index: 2;
+	cursor: pointer;
+	margin-right: 60px;
+}
+
+.settings-content .user-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+	border-radius: 100%;
+}
+.settings-content .edit-user-image {
+	position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    color: #fff;
+    line-height: 160px;
+    text-decoration: none;
+    -webkit-transition: opacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+}
+
+.settings-content .user-image-holder:hover .edit-user-image {
+	opacity: 1;
+}
+
+.settings-content .settings-user {
+	position: absolute;
+	margin-top: -80px;
+	padding-left: 120px;
+}
+
+.settings-content .white {
+	color: white;
+}
 /* INPUTS */
 
 .content input, .content textarea, .content select {
@@ -573,9 +656,8 @@ input[type="text"].entry-title:focus {
 }
 
 .content textarea {
-	width: 100%;
-	max-width: 340px;
-	min-width: 250px;
+	width: 280px;
+	max-width: 280px;
 	height: auto;
 	min-height: 6.5em; 
 }
@@ -655,6 +737,10 @@ input[type="text"].entry-title:focus {
 	display: none;
 }
 
+.no-padding {
+	padding: 0 !important;
+}
+
 /* Normal Fade In effect */
 @keyframes fadein {
     from { opacity: 0; }
@@ -684,6 +770,13 @@ input[type="text"].entry-title:focus {
 		width: 100%; 
 	}
 
+	.settings-sidebar {
+		width: 100%;
+	}
+
+	.settings-content {
+		width: 100%;
+	}
 }
 
  
@@ -782,7 +875,7 @@ input[type="text"].entry-title:focus {
 }
 /* MOBILE */
 
-@media (max-width: 1000px) {
+@media only screen and (max-width: 480px) {
 
 	main {
 		top: 0;
@@ -791,7 +884,7 @@ input[type="text"].entry-title:focus {
 		right: 0;
 	}
 
-	.content-preview {
+	.content-preview, .settings-content {
 		width: auto;
 		left: 100%;
 		right: -100%;
@@ -806,6 +899,50 @@ input[type="text"].entry-title:focus {
 	.content-preview .wrapper {
 		font-size: 13px;
 		padding: 30px 20px;
+	}
+
+	.settings-content .page-actions {
+		position: absolute;
+		top: 17px;
+		right: 20px;
+		z-index: 700;
+	}
+
+	.settings-general {
+		position: absolute;
+		top: 70px;
+		left: 20px;
+		padding-bottom: 50px;
+	}
+
+	.settings-content .edit-cover-image {
+	    position: absolute;
+	    right: 20px;
+	    bottom: 120px;	
+	}
+	.settings-content .user-image-holder {
+		top: -70px;
+		left: -20px;
+		width: 100px;
+		height: 100px;
+	}
+
+	.settings-content .edit-user-image {
+	    line-height: 100px;
+	}
+
+	.settings-content .user-profile {
+		margin: 0;
+		padding: 0;
+	}
+	.settings-content .settings-user {
+		margin: 0;
+		margin-top: -100px;
+		padding: 20px;
+	}
+
+	.settings-content .white {
+		color: #aaa9a2;
 	}
 
 	.login-box {
@@ -837,6 +974,17 @@ input[type="text"].entry-title:focus {
 	.meta {
 		padding-left: 3px;
 	}
+
+	.form-group {
+      	padding-left: 0; 
+    } 
+
+    .content form label {
+		display: block;
+		position: relative;
+		margin-bottom: 5px;
+		text-align: left; 
+  	}
 }
 
 img {

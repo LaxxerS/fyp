@@ -6,7 +6,7 @@
 </header>
 
 <section class="content">
-	<form id="settings-general" novalidate="novalidate">
+	<form id="settings-general" class="settings-general" novalidate="novalidate">
 		<div class="form-group">
 			<label for="blog-title">Blog Title</label>
 			<input type="text" value="{{title}}" id="blog-title" />
@@ -24,8 +24,8 @@
 
 		<div class="form-group">
 		    <label for="blog-cover">Blog Cover</label>
-		    	<input type="file" id="fileupload" name="files[]" data-url="htttp://localhost:3000/admin/upload/" style="display: none;" />
-		        <a class="btn btn-primary upload">Upload Image</a>
+		    	<input type="file" id="blog-cover" name="files[]" data-url="htttp://localhost:3000/admin/upload/" style="display: none;" />
+		        <a class="btn btn-primary blog-upload">Upload Image</a>
 		    <p>Display a cover image on your site</p>
 		</div>	
 

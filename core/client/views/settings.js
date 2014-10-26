@@ -100,8 +100,8 @@
 
 		events: {
 			'click .save': 'saveSettings',
-			'click .upload': 'showUpload',
-			'change input[type=file]': 'uploadFile'
+			'click .blog-upload': 'showUpload',
+			'change #blog-cover': 'uploadFile'
 		},
 
 		showUpload: function() {
@@ -111,8 +111,8 @@
 		uploadFile: function(e) {
 			e.preventDefault();
 			NProgress.start();
-			var fileSelect = document.getElementById('fileupload'),
-					button = document.getElementsByClassName('upload')[0],
+			var fileSelect = document.getElementById('blog-cover'),
+					button = document.getElementsByClassName('blog-upload')[0],
 					 files = fileSelect.files,
 			      formData = new FormData(),
 
@@ -130,7 +130,7 @@
 			  // Hack to rename file.
 			  filename = file.name;
 			  fileext = filename.split('.');
-			  _filename = 'blog_cover.' + fileext[1];
+			  _filename = 'blog-cover.' + fileext[1];
 			 
 			  formData.append('photos[]', file, _filename);
 			}
@@ -187,6 +187,65 @@
 
 		options: {
 			modelName: 'User',
+		},
+
+		events: {
+			'click .edit-user-image': 'showUpload',
+			'change #user-profile': 'uploadFile'
+		},
+
+		showUpload: function() {
+			$('input[type=file]').click();
+		},
+
+		uploadFile: function(e) {
+			e.preventDefault();
+			NProgress.start();
+			var fileSelect = document.getElementById('user-profile'),
+					 files = fileSelect.files,
+			      formData = new FormData(),
+			      image    = document.getElementById('user-profile-image'),
+
+			      filename,
+			      _filename,
+			      fileext;
+
+			for (var i = 0; i < files.length; i++) {
+			  var file = files[i];
+			 
+			  if (!file.type.match('image.*')) {
+			    continue;
+			  }
+
+			  // Hack to rename file.
+			  filename = file.name;
+			  fileext = filename.split('.');
+			  _filename = 'user-image.' + fileext[1];
+			 
+			  formData.append('photos[]', file, _filename);
+			}
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'http://localhost:3000/admin/upload/', true);
+
+			xhr.onload = function () {
+			  if (xhr.status === 200) {
+			  	NProgress.done();
+				App.notifications.addItem({
+                    type: 'success',
+                    message: 'Your profile image has been uploaded.',
+                    status: 'passive'
+                });
+			  } else {
+				App.notifications.addItem({
+                    type: 'error',
+                    message: 'An error has occurred.',
+                    status: 'passive'
+                });
+			  }
+			};
+
+			xhr.send(formData);		
 		},
 
 		templateName: 'settings/user'

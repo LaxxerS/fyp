@@ -30,5 +30,12 @@
         });
     });
 
+    $('#manage').on('click', '.settings-menu ul li', function (event) {
+        responsiveAction(event, '(max-width: 800px)', function () {
+            $('.settings-sidebar').animate({right: '100%', left: '-100%', 'margin-right': '15px'}, 300);
+            $('.settings-content').animate({right: '0', left: '0', 'margin-left': '0'}, 300);
+        });
+    });
+
 }());
     

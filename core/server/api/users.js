@@ -43,8 +43,7 @@ users = {
 	},
 
 	edit: function(userData) {
-
-		userData.id = this.user;
+		userData.id = 1;
 		return dataProvider.User.edit(userData).then(function(result) {
             if (result) {
                 var omitted = result.toJSON();

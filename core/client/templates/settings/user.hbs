@@ -5,11 +5,51 @@
     </section>
 </header>
 
-<section class="content">
-	<form id="settings-general" novalidate="novalidate">
-		<div class="form-group">
-			<label for="blog-title">User Title</label>
-			<input type="text" value="{{name}}" id="blog-title" />
-			<p>The name of your blog</p>
-		</div>
+<section class="content no-padding">
+    <header class="user-profile-header">
+        <img id="user-cover" class="cover-image" src="/x/shared/img/blog-cover.png" title=""/>
+        <button class="edit-cover-image btn btn-primary" href="#">Change Cover</button>
+    </header>
+
+    <section class="user-profile">
+        <figure class="user-image-holder">
+            <div class="user-image" id="user-profile-image" style="background-image: url({{#if image}}/x/shared/img/{{image}}{{else}}/x/shared/img/default.png{{/if}});"></div>
+            <a href="#" class="edit-user-image"><i class="fa fa-camera fa-2x"></i></a>
+            <input type="file" id="user-profile" name="files[]" data-url="htttp://localhost:3000/admin/upload/" style="display: none;" />
+        </figure>
+    </section>
+
+	<form id="settings-user" class="settings-user" novalidate="novalidate">
+        <div class="form-group">
+            <label for="user-name" class="hidden">Full Name</label>
+            <input type="text" value="{{name}}" id="user-name" placeholder="Full Name" autocorrect="off" />
+            <p class="white">Use your real name so people can recognise you</p>
+        </div>
+        <div class="form-group">
+            <label for"user-email">Email</label>
+            <input type="email" value="{{email}}" id="user-email" placeholder="Email Address" autocapitalize="off" autocorrect="off" />
+            <p>So that people can contact you!</p>
+        </div>
+
+        <div class="form-group">
+            <label for="user-location">Location</label>
+            <input type="text" value="{{location}}" id="user-location" />
+            <p>Where in the world do you live?</p>
+        </div>
+
+        <div class="form-group">
+            <label for="user-website">Twitter</label>
+            <input type="text" value="{{website}}" id="user-website" autocapitalize="off" autocorrect="off" />
+            <p>Let your readers connect with you</p>
+        </div>	
+
+        <div class="form-group bio-container">
+            <label for="user-bio">Bio</label>
+            <textarea id="user-bio">{{bio}}</textarea>
+            <p>
+                Write about you, in 200 characters or less.
+                <span class="word-count">0</span>
+            </p>
+        </div>        
+	</form>
 </section>

@@ -122,7 +122,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<header>\r\n    <h1 class=\"title\">General</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success save\">Save</button>\r\n    </section>\r\n</header>\r\n\r\n<section class=\"content\">\r\n	<form id=\"settings-general\" novalidate=\"novalidate\">\r\n		<div class=\"form-group\">\r\n			<label for=\"blog-title\">Blog Title</label>\r\n			<input type=\"text\" value=\"";
+  buffer += "<header>\r\n    <h1 class=\"title\">General</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success save\">Save</button>\r\n    </section>\r\n</header>\r\n\r\n<section class=\"content\">\r\n	<form id=\"settings-general\" class=\"settings-general\" novalidate=\"novalidate\">\r\n		<div class=\"form-group\">\r\n			<label for=\"blog-title\">Blog Title</label>\r\n			<input type=\"text\" value=\"";
   if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -130,7 +130,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (helper = helpers.description) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.description); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</textarea>\r\n			<p>\r\n			Describe what your blog is about\r\n			<span class=\"word-count\">0</span>\r\n			</p>\r\n		</div>\r\n\r\n		<div class=\"form-group\">\r\n		    <label for=\"blog-cover\">Blog Cover</label>\r\n		    	<input type=\"file\" id=\"fileupload\" name=\"files[]\" data-url=\"htttp://localhost:3000/admin/upload/\" style=\"display: none;\" />\r\n		        <a class=\"btn btn-primary upload\">Upload Image</a>\r\n		    <p>Display a cover image on your site</p>\r\n		</div>	\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"activeTheme\">Theme</label>\r\n            <select id=\"activeTheme\" name=\"general[activeTheme]\">\r\n            	<option value=\"\">Default</option>\r\n            </select>\r\n            <p>Select a theme for your blog</p>\r\n        </div>\r\n\r\n		<div class=\"form-group\">\r\n		    <label for=\"blog-cover\">Connection</label>\r\n		        <a class=\"btn btn-primary\">Establish Connection</a>\r\n		    <p>Connect to the publishing platform</p>\r\n		</div>	        \r\n	</form>	\r\n</section>\r\n\r\n";
+    + "</textarea>\r\n			<p>\r\n			Describe what your blog is about\r\n			<span class=\"word-count\">0</span>\r\n			</p>\r\n		</div>\r\n\r\n		<div class=\"form-group\">\r\n		    <label for=\"blog-cover\">Blog Cover</label>\r\n		    	<input type=\"file\" id=\"blog-cover\" name=\"files[]\" data-url=\"htttp://localhost:3000/admin/upload/\" style=\"display: none;\" />\r\n		        <a class=\"btn btn-primary blog-upload\">Upload Image</a>\r\n		    <p>Display a cover image on your site</p>\r\n		</div>	\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"activeTheme\">Theme</label>\r\n            <select id=\"activeTheme\" name=\"general[activeTheme]\">\r\n            	<option value=\"\">Default</option>\r\n            </select>\r\n            <p>Select a theme for your blog</p>\r\n        </div>\r\n\r\n		<div class=\"form-group\">\r\n		    <label for=\"blog-cover\">Connection</label>\r\n		        <a class=\"btn btn-primary\">Establish Connection</a>\r\n		    <p>Connect to the publishing platform</p>\r\n		</div>	        \r\n	</form>	\r\n</section>\r\n\r\n";
   return buffer;
   });
 
@@ -146,13 +146,47 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 this["JST"]["settings/user"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "/x/shared/img/";
+  if (helper = helpers.image) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.image); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1);
+  return buffer;
+  }
 
-  buffer += "<header>\r\n    <h1 class=\"title\">User Profile</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success\">Save</button>\r\n    </section>\r\n</header>\r\n\r\n<section class=\"content\">\r\n	<form id=\"settings-general\" novalidate=\"novalidate\">\r\n		<div class=\"form-group\">\r\n			<label for=\"blog-title\">User Title</label>\r\n			<input type=\"text\" value=\"";
+function program3(depth0,data) {
+  
+  
+  return "/x/shared/img/default.png";
+  }
+
+  buffer += "<header>\r\n    <h1 class=\"title\">User Profile</h1>\r\n    <section class=\"page-actions\">\r\n        <button class=\"btn btn-success\">Save</button>\r\n    </section>\r\n</header>\r\n\r\n<section class=\"content no-padding\">\r\n    <header class=\"user-profile-header\">\r\n        <img id=\"user-cover\" class=\"cover-image\" src=\"/x/shared/img/blog-cover.png\" title=\"\"/>\r\n        <button class=\"edit-cover-image btn btn-primary\" href=\"#\">Change Cover</button>\r\n    </header>\r\n\r\n    <section class=\"user-profile\">\r\n        <figure class=\"user-image-holder\">\r\n            <div class=\"user-image\" id=\"user-profile-image\" style=\"background-image: url(";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.image), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += ");\"></div>\r\n            <a href=\"#\" class=\"edit-user-image\"><i class=\"fa fa-camera fa-2x\"></i></a>\r\n            <input type=\"file\" id=\"user-profile\" name=\"files[]\" data-url=\"htttp://localhost:3000/admin/upload/\" style=\"display: none;\" />\r\n        </figure>\r\n    </section>\r\n\r\n	<form id=\"settings-user\" class=\"settings-user\" novalidate=\"novalidate\">\r\n        <div class=\"form-group\">\r\n            <label for=\"user-name\" class=\"hidden\">Full Name</label>\r\n            <input type=\"text\" value=\"";
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "\" id=\"blog-title\" />\r\n			<p>The name of your blog</p>\r\n		</div>\r\n</section>";
+    + "\" id=\"user-name\" placeholder=\"Full Name\" autocorrect=\"off\" />\r\n            <p class=\"white\">Use your real name so people can recognise you</p>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for\"user-email\">Email</label>\r\n            <input type=\"email\" value=\"";
+  if (helper = helpers.email) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.email); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" id=\"user-email\" placeholder=\"Email Address\" autocapitalize=\"off\" autocorrect=\"off\" />\r\n            <p>So that people can contact you!</p>\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"user-location\">Location</label>\r\n            <input type=\"text\" value=\"";
+  if (helper = helpers.location) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.location); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" id=\"user-location\" />\r\n            <p>Where in the world do you live?</p>\r\n        </div>\r\n\r\n        <div class=\"form-group\">\r\n            <label for=\"user-website\">Twitter</label>\r\n            <input type=\"text\" value=\"";
+  if (helper = helpers.website) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.website); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" id=\"user-website\" autocapitalize=\"off\" autocorrect=\"off\" />\r\n            <p>Let your readers connect with you</p>\r\n        </div>	\r\n\r\n        <div class=\"form-group bio-container\">\r\n            <label for=\"user-bio\">Bio</label>\r\n            <textarea id=\"user-bio\">";
+  if (helper = helpers.bio) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.bio); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</textarea>\r\n            <p>\r\n                Write about you, in 200 characters or less.\r\n                <span class=\"word-count\">0</span>\r\n            </p>\r\n        </div>        \r\n	</form>\r\n</section>";
   return buffer;
   });

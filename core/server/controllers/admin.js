@@ -53,13 +53,18 @@ adminControllers = {
 	    });
 
 	    req.busboy.on('finish', function() {
-	    	if(_filename === 'blog_cover.png' || _filename === 'blog_cover.jpg'  || _filename === 'blog_cover.jpeg') {
+	    	if(_filename === 'blog-cover.png' || _filename === 'blog-cover.JPG'  || _filename === 'blog-cover.jpeg') {
 				var data = {
 				'cover': _filename
 				}
 				api.settings.edit(data);
+	    	} else if(_filename === 'user-image.png' || _filename === 'user-image.JPG'  || _filename === 'user-image.jpeg') {
+	    		var data = {
+	    			'image': _filename
+	    		}
+	    		api.users.edit(data);
 	    	}
-	    });
+	    }); 
 
 	}
 }
