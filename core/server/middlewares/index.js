@@ -38,8 +38,10 @@ function manageThemePath(req, res, next) {
 module.exports = function(server) {
 	expressServer = server;
 	
-	expressServer.use('/assets/css/', express.static(path.join(contentPath, 'theme/default/assets/css')));
-	expressServer.use('/assets/font/', express.static(path.join(contentPath, 'theme/default/assets/font')));
+	expressServer.use('/assets/css/', express.static(path.join(contentPath, 'theme/default/assets/css'), {maxAge: ONE_HOUR_MS}));
+	expressServer.use('/assets/font/', express.static(path.join(contentPath, 'theme/default/assets/font'), {maxAge: ONE_HOUR_MS}));
+	expressServer.use('/x/scripts', express.static(path.join(corePath, 'client/'), {maxAge: ONE_HOUR_MS}));
+	expressServer.use('/x/shared', express.static(path.join(corePath, 'shared/'), {maxAge: ONE_HOUR_MS}));
 	expressServer.use(manageThemePath);
 	expressServer.use(slashes(true, {headers: {'Cache-Control': 'public, max-age=' + ONE_YEAR_S}}));
 }

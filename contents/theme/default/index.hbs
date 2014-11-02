@@ -4,12 +4,12 @@
     <div class="overlay"></div>
     <div class="vertical">
         <div class="site-header-content inner">
-        <h1 class="blog-title">{{blog_title}}</h1>
-        <h2 class="blog-description">{{blog_description}}</h2>
-        </div>
+            <h1 class="blog-title">{{blog_title}}</h1>
+            <h2 class="blog-description">{{blog_description}}</h2>
+       </div>
+        <a href="#" id="header-link" class="header-link"></a>
     </div>
 </header>
-
 
 <main class="posts" role="main">
 
@@ -25,7 +25,9 @@
         </section>
 
         <section class="post-footer">
-            <img class="rounded small" src="/x/shared/img/{{#if author.image}}{{author.image}}{{else}}default.png{{/if}}">
+            <div class="rounded small">
+                <div class="user-image" style="background-image: url(./x/shared/img/{{#if author.image}}{{author.image}}{{else}}default.png{{/if}})"></div>
+            </div>
             <span class="author">{{author.name}}</span>
             <span class="post-readtime"><a href="{{slug}}/">{{reading_time}}</a></span>
         </section>

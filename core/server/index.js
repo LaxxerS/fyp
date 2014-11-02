@@ -28,10 +28,6 @@ function init() {
 	server.use(session({secret: '<mysecret>', saveUninitialized: true, resave: true}));
 	server.use(flash());
 	server.use(busboy());
-	// ## Static folder
-	// For Development
-	server.use('/x/scripts', express.static(path.join(__dirname, '../client/')));
-	server.use('/x/shared', express.static(path.join(__dirname, '../shared/')));
 
 	// ## Models and Migrations
 	models.init(),

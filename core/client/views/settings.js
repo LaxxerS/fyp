@@ -205,7 +205,7 @@
 					 files = fileSelect.files,
 			      formData = new FormData(),
 			      image    = document.getElementById('user-profile-image'),
-
+			      imageUrl,
 			      filename,
 			      _filename,
 			      fileext;
@@ -226,11 +226,17 @@
 			}
 
 			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhost:3000/admin/upload/', true);
+			xhr.open('POST', '/admin/upload/', true);
 
 			xhr.onload = function () {
 			  if (xhr.status === 200) {
 			  	NProgress.done();
+			
+				$('#user-profile-image').fadeOut('slow', function() {
+					imageUrl = '/x/shared/img/user-image.jpg';
+					$(this).css('background-image', 'url(' + imageUrl + ')')
+					$(this).fadeIn('slow');
+				});
 				App.notifications.addItem({
                     type: 'success',
                     message: 'Your profile image has been uploaded.',
