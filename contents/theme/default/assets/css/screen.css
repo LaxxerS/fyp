@@ -460,6 +460,17 @@ a {
   float: left;
 }
 
+.post-template .post-header .user-image {
+  width: 30px; 
+  height: 30px; 
+  border-radius: 100%; 
+  margin: 3px 10px; 
+  display: inline-block; 
+  float: left;
+  background-size: cover;
+  background-position: center center;
+}
+
 .post-template .post-wrapper {
   position: relative;
   width: 80%;
@@ -566,7 +577,7 @@ a {
     .post-template .post-readtime {
       display: none;
     }
-    
+
     .posts .post-content,
     .post-template .post-content {
       width: auto;
