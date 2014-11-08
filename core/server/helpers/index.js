@@ -36,6 +36,14 @@ coreHelpers.blog_cover = function(options) {
     return themeConfig.cover;
 }
 
+coreHelpers.meta_title = function(options) {
+    if(this.post) {
+        return this.post.title;
+    } else {
+        return themeConfig.title;
+    }
+}
+
 coreHelpers.excerpt = function (options){
     var truncateOptions = (options || {}).hash || {},
         excerpt;
@@ -101,6 +109,7 @@ registerHelpers = function (adminHbs) {
     registerThemeHelper('blog_title', coreHelpers.blog_title);
     registerThemeHelper('blog_description', coreHelpers.blog_description);
     registerThemeHelper('blog_cover', coreHelpers.blog_cover);
+    registerThemeHelper('meta_title', coreHelpers.meta_title);
     registerThemeHelper('excerpt', coreHelpers.excerpt);
     registerThemeHelper('date', coreHelpers.date);
     registerThemeHelper('reading_time', coreHelpers.reading_time);

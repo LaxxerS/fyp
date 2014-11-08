@@ -25,6 +25,7 @@
     {{#unless hideNavbar}}
     <header class="navbar">
         <nav class="admin-navbar" role="navigation">
+            <a href="" class="toggle"></a>
             <ul class="nav-menu">
                 <li><a href="/admin/content/" class="fade">Content</a></li>
                 <li><a href="/admin/editor/" class="fade">New</a></li>
@@ -36,8 +37,15 @@
         </nav>
     </header>
     {{/unless}}
-
-
+    <div class="mobile-menu">
+        <ul>
+            <li><a href=""><div class="rounded"><img src="/x/shared/img/user-image.jpg"></div>Chong Zhi Rui<p>Profile & Settings</p></a></li>
+            <li><a href="/admin/content/">Content</a></li>
+            <li><a href="/admin/editor/">New Post</a></li>
+            <li><a href="/admin/settings/general/">Settings</a></li>
+            <li><a href="">Sign Out</a></li>
+        </ul>
+    </div>
 
     <main role="main" id="main">
         {{{body}}}
