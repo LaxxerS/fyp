@@ -172,7 +172,6 @@ body, html {
 	margin-right: 10px; 
 	display: inline-block; 
 	float: left;
-	background-size: cover;
 	background-position: center center;
 	overflow: hidden;
 }
