@@ -8,10 +8,16 @@ var downsize = require('downsize'),
 
 	coreHelpers = {},
     themeConfig = {},
+    userInfo    = {},
 
     registerHelpers;
 
 function update() {
+    updateBlogSettings();
+    updateUserInfo();
+}
+
+function updateBlogSettings() {
     when.all([
         api.settings.read('title'),
         api.settings.read('description'),
@@ -20,6 +26,13 @@ function update() {
         themeConfig.title = results[0].value;
         themeConfig.description = results[1].value;
         themeConfig.cover = results[2].value;
+        return;
+    });
+}
+
+function updateUserInfo(){
+    when(api.users.read({id: 'self'})).then(function(result) {
+        userInfo = result;
         return;
     });
 }
@@ -45,7 +58,11 @@ coreHelpers.meta_title = function(options) {
 }
 
 coreHelpers.user_image = function(options) {
-    return 'user-image.jpg';
+    return userInfo.image;
+}
+
+coreHelpers.user_name = function(options) {
+    return userInfo.name;
 }
 
 coreHelpers.excerpt = function (options){
@@ -115,6 +132,7 @@ registerHelpers = function (adminHbs) {
     registerThemeHelper('blog_cover', coreHelpers.blog_cover);
     registerThemeHelper('meta_title', coreHelpers.meta_title);
     registerThemeHelper('user_image', coreHelpers.user_image);
+    registerThemeHelper('user_name', coreHelpers.user_name);
     registerThemeHelper('excerpt', coreHelpers.excerpt);
     registerThemeHelper('date', coreHelpers.date);
     registerThemeHelper('reading_time', coreHelpers.reading_time);

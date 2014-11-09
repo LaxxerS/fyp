@@ -55,16 +55,77 @@ body, html {
 .navbar ul li a {
 	display: block;
 	padding: 5px 10px;
-	color: black;
+	color: #888;
 	text-decoration: none;
+	font-size: 11px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.navbar ul li a:hover {
+	color: black;
+}
+
+.navbar ul li:first-child a:before {    
+	padding-right: 8px;
+    text-transform: none;
+    speak: none;
+    color: #666;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    content: '\f15c';
+}
+
+.navbar ul li:nth-child(2) a:before {
+	padding-right: 8px;
+    text-transform: none;
+    speak: none;
+    color: #666;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+	content: '\f067';
+}
+
+.navbar ul li:nth-child(3) a:before {
+	padding-right: 8px;
+    text-transform: none;
+    speak: none;
+    color: #666;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+	content: '\f013';
+}
+
+.navbar ul li:nth-child(4) a:before {
+	padding-right: 8px;
+    text-transform: none;
+    speak: none;
+    color: #666;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+	content: '\f011';
 }
 
 .navbar ul li .rounded {
-	border-radius: 50%;
-	width: 22px;
-	height: 22px; 
-	background-color: black;
-	margin-top: 1px;
+	border-radius: 100%;
+	width: 25px;
+	height: 25px; 
 	overflow: hidden;
 }
 
@@ -76,7 +137,7 @@ body, html {
 	position: fixed;
 	top: 0;
 	left: -250px;
-	z-index: 1000;
+	z-index: 100;
 	-webkit-transition: 0.15s ease;
 	-moz-transition: 0.15s ease;
 	-o-transition: 0.15s ease;
@@ -136,6 +197,10 @@ body, html {
 	color: #888;
 }
 
+.mobile-menu ul li:not(:first-child) a {
+	padding-left: 35px;
+}
+
 .mobile-menu ul li:not(:first-child) a:before {    
 	padding-right: 20px;
     text-transform: none;
@@ -176,11 +241,25 @@ body, html {
 	overflow: hidden;
 }
 
+.mobile-navbar-title {
+	font-family: Ehrhardt;
+	font-style: italic;
+	font-size: 24px;
+	text-transform: lowercase;
+	position: fixed;
+	top: 1.4%;
+	line-height: 100%;
+	left: 41%;
+	color: white;
+	margin: 0;
+	display: inline-block;
+}
+
 .toggle {
 	display: none;
 	color: #dddddd;
 	text-decoration: none;
-	padding: 12.5px 12.5px 12.5px 27.5px;
+	padding: 12.5px 12.5px 12.5px 20px;
 	-webkit-transition: 0.15s ease;
 	-moz-transition: 0.15s ease;
 	-o-transition: 0.15s ease;
@@ -213,6 +292,33 @@ body, html {
     text-align: center;
     font-size: 19px;
 }
+
+.button-back {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	color: #dddddd;
+	text-decoration: none;
+	padding: 12.5px 12.5px 12.5px 20px;
+}
+
+.button-back:before {
+    vertical-align: -7%;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    content: '\f104';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 19px;
+}
+
 /* LOGIN */
 .login-box {
 	position: fixed;
@@ -321,6 +427,14 @@ input[type="text"].entry-title:focus {
 
 .btn-success:hover {
 	background-color: #43B73F;
+}
+
+.btn-error {
+	background-color: #e25440;
+}
+
+.btn-error:hover {
+	background-color: #D34633;
 }
 
 .meta {
@@ -473,7 +587,7 @@ input[type="text"].entry-title:focus {
 	text-align: justify;
 	line-height: 150%;
 	color: #333;
-	padding: 80px 60px;
+	padding: 30px 60px;
 	position: absolute;
 	overflow: auto;
 	top: 0;
@@ -483,6 +597,54 @@ input[type="text"].entry-title:focus {
 	overflow: auto;
 }
 
+.action-group {
+	display: none;
+}
+
+.action-group .mobile-edit,
+.action-group .mobile-delete {
+	position: fixed;
+	top: 0;
+	right: 2%;
+	z-index: 1001;
+	display: inline-block;
+	color: #dddddd;
+	text-decoration: none;
+	padding: 10px 12.5px 12.5px 20px;	
+}
+
+.action-group .mobile-edit {
+	right: 10%;
+}
+.action-group .mobile-edit:before {
+    vertical-align: -7%;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    content: '\f040';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 15px;
+}
+
+.action-group .mobile-delete:before {
+    vertical-align: -7%;
+    text-transform: none;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-family:'FontAwesome';
+    content: '\f014';
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 15px;
+}
 .entry-container {
 	position: relative;
     height: 100%;
@@ -914,30 +1076,6 @@ input[type="text"].entry-title:focus {
     to   { opacity: 1; }
 }
 
-/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-
-
-@media only screen and (max-width: 480px) {
-	.content-preview {
-		width: 100%; 
-		border: none;
-	}
-	.content-list {
-		width: 100%; 
-		border: none;
-	}
-
-	.settings-sidebar {
-		width: 100%;
-		border: none;
-	}
-
-	.settings-content {
-		width: 100%;
-		border: none;
-	}
-}
-
  
 /* TESTING */
 
@@ -1046,12 +1184,26 @@ input[type="text"].entry-title:focus {
 	.navbar {
 		background: #1a1c1d;
 	}
+
 	.navbar ul {
 		display: none;
 	}
 
 	.toggle {
-		display: block;
+		display: inline-block;
+	}
+
+	.content-preview {
+		width: 100%; 
+		border: none;
+	}
+	.content-list {
+		width: 100%; 
+		border: none;
+	}
+	
+	.content-list ol li a {
+		padding: 5px 20px 15px 20px;
 	}
 
 	.content-preview, .settings-content {
@@ -1063,14 +1215,34 @@ input[type="text"].entry-title:focus {
 	} 
 
 	.content-preview .preview-header {
-		padding: 10px 20px;
+		display: none;
 	}
 
 	.content-preview .wrapper {
-		font-size: 13px;
-		padding: 30px 20px;
+		font-size: 16px;
+		padding: 0 20px;
 	}
 
+	.markdown-content textarea {
+		padding: 40px 10px;
+		font-size: 14px;
+	}
+
+	.rendered-markdown .html-entry {
+		padding: 22px 10px;
+		font-size: 16px;
+	}
+
+	.settings-sidebar {
+		width: 100%;
+		border: none;
+	}
+
+	.settings-content {
+		width: 100%;
+		border: none;
+	}
+	
 	.settings-content .page-actions {
 		position: absolute;
 		top: 17px;
@@ -1173,9 +1345,5 @@ form label {
  }
 
 strong {
-	font-family: 'serif';
-}
-
-h1 {
 	font-family: 'serif';
 }

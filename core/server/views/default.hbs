@@ -30,16 +30,17 @@
                 <li><a href="/admin/content/" class="fade">Content</a></li>
                 <li><a href="/admin/editor/" class="fade">New</a></li>
                 <li><a href="/admin/settings/general/" class="fade">Settings</a></li>
-                <li class="pull-right"><a href="" class="fade"><i class="fa fa-power-off fa-lg"></i></a></li>
-                <li class="pull-right"><a href="" class="fade">CHONG ZHI RUI</a></li>
-                <li class="pull-right"><div class="rounded"><img src=""></div></li>
+                <li class="pull-right"><a href="" class="fade"></a></li>
+                <li class="pull-right"><a href="/admin/settings/general/" class="fade">{{user_name}}</a></li>
+                <li class="pull-right"><div class="rounded" style="background: url(/x/shared/img/{{user_image}}); background-size: cover;"></div></li>
             </ul>
+            <div class="mobile-navbar-title">{{{navTitle}}}</div>
         </nav>
     </header>
     {{/unless}}
     <div class="mobile-menu">
         <ul>
-            <li><a href=""><div class="rounded" style="background: url(/x/shared/img/{{user_image}}); background-size: cover;"></div>Chong Zhi Rui<p>Profile & Settings</p></a></li>
+            <li><a href=""><div class="rounded" style="background: url(/x/shared/img/{{user_image}}); background-size: cover;"></div>{{user_name}}<p>Profile & Settings</p></a></li>
             <li><a href="/admin/content/">Content</a></li>
             <li><a href="/admin/editor/">New Post</a></li>
             <li><a href="/admin/settings/general/">Settings</a></li>

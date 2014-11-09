@@ -24,15 +24,15 @@ adminControllers = {
 	},
 
 	content: function(req, res) {
-		res.render('content',  {error: req.flash('error')});	
+		res.render('content',  {error: req.flash('error'), navTitle: 'content'});	
 	},
 
 	editor: function(req, res) {
-		res.render('editor');
+		res.render('editor', {navTitle: '&nbsp;&nbsp;editor'});
 	},
 
 	settings: function(req, res, next) {
-		res.render('settings');
+		res.render('settings', {navTitle: 'settings'});
 	},
 
 	upload: function(req, res) {
