@@ -58,27 +58,28 @@
 
 		setActiveItem: function(e) {
 			e.preventDefault();
-			if(this.active !== true) {
-				Backbone.trigger('blog:activeItem', this.model.id);
-				this.render();
+			if (window.matchMedia('(max-width: 480px)').matches) {
+				Backbone.trigger('blog:activeItem', this.model.id); 
+			} else {
+				if(this.active !== true) {
+					Backbone.trigger('blog:activeItem', this.model.id);
+					this.render();
+				}				
 			}
 		},
 
 		checkActive: function(id) {
-			if (window.matchMedia('(max-width: 480px)').matches) {
-				this.active = true;
-			} else {
-				if (this.model.id !== id) {
-	                if (this.active) {
-	                   this.active = false;
-	                   this.$el.removeClass('active');
-	                   this.render();
-	                }
-	            } else {
-	                this.active = true;
-	                this.$el.addClass('active');
-	            }
-			}
+			if (this.model.id !== id) {
+                if (this.active) {
+                   this.active = false;
+                   this.$el.removeClass('active');
+                   this.render();
+                }
+            } else {
+                this.active = true;
+                this.$el.addClass('active');
+            }
+			
 
         },
 
