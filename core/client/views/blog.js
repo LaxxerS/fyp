@@ -65,16 +65,21 @@
 		},
 
 		checkActive: function(id) {
-            if (this.model.id !== id) {
-                if (this.active) {
-                    this.active = false;
-                    this.$el.removeClass('active');
-                    this.render();
-                }
-            } else {
-                this.active = true;
-                this.$el.addClass('active');
-            }
+			if (window.matchMedia('(max-width: 480px)').matches) {
+				this.active = true;
+			} else {
+				if (this.model.id !== id) {
+	                if (this.active) {
+	                   this.active = false;
+	                   this.$el.removeClass('active');
+	                   this.render();
+	                }
+	            } else {
+	                this.active = true;
+	                this.$el.addClass('active');
+	            }
+			}
+
         },
 
 		templateName: 'list-item',

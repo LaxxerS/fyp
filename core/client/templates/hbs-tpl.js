@@ -22,7 +22,7 @@ function program3(depth0,data) {
   return "\r\n        		<span class=\"draft\">Draft</span>\r\n        	";
   }
 
-  buffer += "<a class=\"fade\" href=\"#\">\r\n    <h3 class=\"entry-title\">";
+  buffer += "<a class=\"fade\" href=\"\">\r\n    <h3 class=\"entry-title\">";
   if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
