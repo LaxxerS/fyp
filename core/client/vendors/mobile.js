@@ -15,7 +15,7 @@
     }
 
     // ### Show content preview when swiping left on content list
-    $('#manage').on('click', '.content-list ol li', function(event) {
+    $('#manage').on('click', '.content-list a', function(event) {
         responsiveAction(event, '(max-width: 480px)', function () {
             $('.content-list').animate({right: '100%', left: '-100%', 'margin-right': '15px'}, 150);
             $('.content-preview').animate({right: '0', left: '0', 'margin-left': '0'}, 150);
