@@ -34,7 +34,7 @@
                 <li><a href="/admin/settings/general/" class="fade">Settings</a></li>
                 <li class="pull-right"><a href="" class="fade"></a></li>
                 <li class="pull-right"><a href="/admin/settings/general/" class="fade">{{user_name}}</a></li>
-                <li class="pull-right"><div class="rounded" style="background: url(/x/shared/img/{{user_image}}); background-size: cover;"></div></li>
+                <li class="pull-right"><div class="rounded" style="background: url({{#if user_image}}/x/shared/img/{{user_image}}{{else}}/x/shared/img/default.png{{/if}}); background-size: cover;"></div></li>
             </ul>
             <div class="mobile-navbar-title">{{{navTitle}}}</div>
         </nav>
@@ -42,7 +42,7 @@
     {{/unless}}
     <div class="mobile-menu">
         <ul>
-            <li><a href="/admin/settings/general/"><div class="rounded" style="background: url(/x/shared/img/{{user_image}}); background-size: cover;"></div>{{user_name}}<p>Profile & Settings</p></a></li>
+            <li><a href="/admin/settings/general/"><div class="rounded" style="background: url({{#if user_image}}/x/shared/img/{{user_image}}{{else}}/x/shared/img/default.png{{/if}}); background-size: cover;"></div>{{user_name}}<p>Profile & Settings</p></a></li>
             <li><a href="/admin/content/">Content</a></li>
             <li><a href="/admin/editor/">New Post</a></li>
             <li><a href="/admin/settings/general/">Settings</a></li>

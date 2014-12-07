@@ -4,10 +4,10 @@
 	App.Router = Backbone.Router.extend({
 
 		routes: {
-			'': 'blog',
-			'signin/': 'login',
-			'content/': 'blog',
-			'editor(/:id)/': 'editor',
+			''                 : 'blog',
+			'signin/'          : 'login',
+			'content/'         : 'blog',
+			'editor(/:id)/'    : 'editor',
 			'settings(/:pane)/': 'settings'
 		},
 

@@ -381,6 +381,7 @@ input[type="text"].entry-title:focus {
 }
 
 .btn {
+	font-family: 'Open Sans', sans-serif;
 	font-weight: lighter;
 	font-size: 11px;
 	text-transform: uppercase;

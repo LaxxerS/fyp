@@ -18,6 +18,14 @@ function generatePasswordHash(password) {
 User = myBookshelf.Model.extend({
 	tableName: 'users',
 
+	initialize: function() {
+		this.on('saving', this.saving);
+	},
+
+	saving: function() {
+		myBookshelf.Model.prototype.saving.call(this);
+	}
+
 }, {
 	check: function(_userData) {
 		return this.getByEmail(_userData.email).then(function(user) {

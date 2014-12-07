@@ -6,6 +6,7 @@ module.exports = function(server) {
 	server.get('/admin/api/v0.1/posts/:id', api.requestHandler(api.posts.read));
 	server.put('/admin/api/v0.1/posts/:id', api.requestHandler(api.posts.edit));
 	server.post('/admin/api/v0.1/posts/', api.requestHandler(api.posts.add));
+	server.delete('/admin/api/v0.1/posts/:id', api.requestHandler(api.posts.destroy));
 
 	//## Settings
     server.get('/admin/api/v0.1/settings/', api.requestHandler(api.settings.browse));

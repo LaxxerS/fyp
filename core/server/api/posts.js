@@ -40,7 +40,7 @@ posts = {
                     return omitted;
                 }
                 return new Error('Post not found');
-			})
+			});
 	},
 
     add: function(newPostData) {
@@ -51,7 +51,16 @@ posts = {
                     return omitted;
                 }
                 return new Error('Post not found');
-            })
+            });
+    },
+
+    destroy: function(args) {
+            return when(posts.read({id: args.id, status: 'all'})).then(function(result) {
+                return dataProvider.Post.destroy(args.id).then(function() {
+                    var deletedPost = result;
+                    return deletedPost;
+                });
+            });
     }
 
 };

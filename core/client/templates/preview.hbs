@@ -1,16 +1,26 @@
 <header class="preview-header">
     <section class="post-control">
+        {{#if title}}
    		<small><i class="fa fa-bookmark-o"></i> &nbsp;&nbsp;PUBLISHED by {{author.name}} &nbsp;&nbsp;
     		|&nbsp;&nbsp;{{date created_at format="MMM Do"}} </small>
-        <a href="/admin/editor/{{id}}/"  class="pull-right fade"><i class="fa fa-trash-o"></i></a>          
+        <a href="#" id="{{id}}" class="pull-right fade delete"><i class="fa fa-trash-o"></i></a>          
         <a href="/admin/editor/{{id}}/" class="pull-right fade"><i class="fa fa-pencil"></i></a>
+        {{/if}}
     </section>
 </header>
 
 <div class="wrapper">
 	<aside class="action-group">
 		<a href="/admin/editor/{{id}}/" class="mobile-edit">Edit</a>
-		<a href="/admin/editor/{{id}}/" class="mobile-delete">Delete</a>
+		<a href="#" id="{{id}}" class="mobile-delete delete">Delete</a>
 	</aside>
 	<h2>{{{title}}}</h2>{{{html}}}
+    {{#unless title}}
+        <div class="no-posts-box">
+            <div class="no-posts">
+                <h3>You Haven't Written Any Posts Yet!</h3>
+                <form action="/admin/editor/"><button class="btn btn-success" title="New Post">Write a new Post</button></form>
+            </div>
+        </div>
+    {{/unless}}
 </div>

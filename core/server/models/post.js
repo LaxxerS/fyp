@@ -13,7 +13,7 @@ Post = myBookshelf.Model.extend({
 
 	defaults: function() {
 		return {
-			status: 'draft'
+			status: 'published'
 		};
 	},
 
@@ -25,17 +25,16 @@ Post = myBookshelf.Model.extend({
 	saving: function() {
 		this.set('html', converter.makeHtml(this.get('markdown')));
         this.set('slug', slugs(this.get('title')));
+
+        myBookshelf.Model.prototype.saving.call(this);
 	},
 
-    creating: function (newPage, attr, options) {
-    /*jshint unused:false*/
+    creating: function(options) {
+ 
+        if (!this.get('author_id')) {
+            this.set('author_id', 1);
+        }
 
-    // set any dynamic default properties
-    if (!this.get('author_id')) {
-        this.set('author_id', 1);
-    }
-
-        //myBookshelf.Model.prototype.creating.call(this);
     },
 
 	author: function() {
@@ -83,6 +82,14 @@ Post = myBookshelf.Model.extend({
         var self = this;
 
         return myBookshelf.Model.add.call(this, newPostData, options);
+    },
+
+    destroy: function(_id, options) {
+        options = options || {};
+
+        return this.forge({id: _id}).fetch().then(function(post) {
+            return post.destroy(options);
+        });
     }
 
 });

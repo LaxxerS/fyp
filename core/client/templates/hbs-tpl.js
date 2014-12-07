@@ -87,38 +87,56 @@ function program3(depth0,data) {
 this["JST"]["preview"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, options, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
 
-
-  buffer += "<header class=\"preview-header\">\r\n    <section class=\"post-control\">\r\n   		<small><i class=\"fa fa-bookmark-o\"></i> &nbsp;&nbsp;PUBLISHED by "
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper, options;
+  buffer += "\r\n   		<small><i class=\"fa fa-bookmark-o\"></i> &nbsp;&nbsp;PUBLISHED by "
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.author)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + " &nbsp;&nbsp;\r\n    		|&nbsp;&nbsp;"
     + escapeExpression((helper = helpers.date || (depth0 && depth0.date),options={hash:{
     'format': ("MMM Do")
   },data:data},helper ? helper.call(depth0, (depth0 && depth0.created_at), options) : helperMissing.call(depth0, "date", (depth0 && depth0.created_at), options)))
-    + " </small>\r\n        <a href=\"/admin/editor/";
+    + " </small>\r\n        <a href=\"#\" id=\"";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "/\"  class=\"pull-right fade\"><i class=\"fa fa-trash-o\"></i></a>          \r\n        <a href=\"/admin/editor/";
+    + "\" class=\"pull-right fade delete\"><i class=\"fa fa-trash-o\"></i></a>          \r\n        <a href=\"/admin/editor/";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "/\" class=\"pull-right fade\"><i class=\"fa fa-pencil\"></i></a>\r\n    </section>\r\n</header>\r\n\r\n<div class=\"wrapper\">\r\n	<aside class=\"action-group\">\r\n		<a href=\"/admin/editor/";
+    + "/\" class=\"pull-right fade\"><i class=\"fa fa-pencil\"></i></a>\r\n        ";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  
+  return "\r\n        <div class=\"no-posts-box\">\r\n            <div class=\"no-posts\">\r\n                <h3>You Haven't Written Any Posts Yet!</h3>\r\n                <form action=\"/admin/editor/\"><button class=\"btn btn-success\" title=\"New Post\">Write a new Post</button></form>\r\n            </div>\r\n        </div>\r\n    ";
+  }
+
+  buffer += "<header class=\"preview-header\">\r\n    <section class=\"post-control\">\r\n        ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.title), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    </section>\r\n</header>\r\n\r\n<div class=\"wrapper\">\r\n	<aside class=\"action-group\">\r\n		<a href=\"/admin/editor/";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "/\" class=\"mobile-edit\">Edit</a>\r\n		<a href=\"/admin/editor/";
+    + "/\" class=\"mobile-edit\">Edit</a>\r\n		<a href=\"#\" id=\"";
   if (helper = helpers.id) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.id); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "/\" class=\"mobile-delete\">Delete</a>\r\n	</aside>\r\n	<h2>";
+    + "\" class=\"mobile-delete delete\">Delete</a>\r\n	</aside>\r\n	<h2>";
   if (helper = helpers.title) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.title); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "</h2>";
   if (helper = helpers.html) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.html); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n    ";
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.title), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n</div>\r\n";
   return buffer;

@@ -1,7 +1,7 @@
 (function() {
 	App.Models.Post = Backbone.Model.extend({
 		defaults: {
-			status: 'draft'
+			status: 'published'
 		}
 	});
 

@@ -2,6 +2,7 @@ var bookshelf = require('bookshelf'),
 	knex	  = require('knex'),
 	_ 		  = require('lodash'),
     path      = require('path'),
+    uuid      = require('node-uuid'),
 
 	myBookshelf;
 
@@ -11,6 +12,11 @@ myBookshelf = bookshelf(knex({ client: 'sqlite3', connection: { filename: path.r
 myBookshelf.Model = myBookshelf.Model.extend({
 
 	hasTimestamps: true,
+
+    saving: function() {
+        this.set('uuid', uuid.v4());
+    }
+    
 } , {
 
     findAll:  function(options) {

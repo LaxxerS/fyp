@@ -50,6 +50,7 @@
 
 		initialize: function() {
 			this.listenTo(Backbone, 'blog:activeItem', this.checkActive);
+			this.listenTo(this.model, 'destroy', this.removeItem);
 		},
 
 		events: {
@@ -67,6 +68,13 @@
 				}				
 			}
 		},
+
+        removeItem: function () {
+            var self = this;
+            $.when(this.$el.slideUp()).then(function () {
+                self.remove();
+            });
+        },
 
 		checkActive: function(id) {
 			if (this.model.id !== id) {
@@ -94,6 +102,10 @@
 	PreviewContainer = App.View.extend({
 		templateName: 'preview',
 
+		events: {
+			'click .delete': 'deletePost'
+		},
+
 		activeId: null,
 
 		initialize: function () {
@@ -106,6 +118,23 @@
                 this.render();
             }
         },    
+
+        deletePost: function(e) {
+			e.preventDefault();
+			var item = $(e.currentTarget),
+				id   = item.attr('id');
+
+				NProgress.start();
+				alert('Are you sure you want to delete this post?');
+				this.model.destroy({id: id}).then(function() {
+					NProgress.done();
+					App.notifications.addItem({
+	                    type: 'success',
+	                    message: 'Your post has been deleted.',
+	                    status: 'passive'
+	                });
+				});
+        },
 
 		render: function() {
 		   	this.model = this.collection.get(this.activeId);

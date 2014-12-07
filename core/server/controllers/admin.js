@@ -53,12 +53,12 @@ adminControllers = {
 	    });
 
 	    req.busboy.on('finish', function() {
-	    	if(_filename === 'blog-cover.png' || _filename === 'blog-cover.JPG'  || _filename === 'blog-cover.jpeg') {
+	    	if(_filename === 'blog-cover.png' || _filename === 'blog-cover.JPG'  || _filename === 'blog-cover.jpeg' || _filename === 'blog-cover.jpg') {
 				var data = {
 				'cover': _filename
 				}
 				api.settings.edit(data);
-	    	} else if(_filename === 'user-image.png' || _filename === 'user-image.JPG'  || _filename === 'user-image.jpeg') {
+	    	} else if(_filename === 'user-image.png' || _filename === 'user-image.JPG'  || _filename === 'user-image.jpeg' || _filename === 'user-image.jpg' ) {
 	    		var data = {
 	    			'image': _filename
 	    		}
