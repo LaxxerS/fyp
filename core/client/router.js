@@ -6,6 +6,7 @@
 		routes: {
 			''                 : 'blog',
 			'signin/'          : 'login',
+			'signup/'		   : 'signup',
 			'content/'         : 'blog',
 			'editor(/:id)/'    : 'editor',
 			'settings(/:pane)/': 'settings'
@@ -13,6 +14,10 @@
 
 		login: function() {
 			App.currentView = new App.Views.Login({el: '.js-login-box'});
+		},
+
+		signup: function() {
+			App.currentView = new App.Views.Signup({el: '.js-login-box'});
 		},
 
 		blog: function() {

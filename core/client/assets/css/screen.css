@@ -342,10 +342,12 @@ body, html {
 	display: inline-block;
 	vertical-align: top;
 	margin: 0;
+	padding-bottom: 5px;
 }
 
-
 input[name="email"],
+input[name="username"],
+input[name="name"],
 input[name="password"] {
     border: none;
     color: #dddddd;
@@ -360,6 +362,8 @@ input[name="password"] {
 }
 
 input[name="email"]:focus,
+input[name="username"]:focus,
+input[name="name"]:focus,
 input[name="password"]:focus {
 	background: #666B6B;
 }

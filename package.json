@@ -29,7 +29,8 @@
     "downsize": "0.0.8",
     "reading-time": "0.0.1",
     "connect-busboy": "0.0.2",
-    "node-uuid": "~1.4.2"
+    "node-uuid": "~1.4.2",
+    "cors": "~2.5.2"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

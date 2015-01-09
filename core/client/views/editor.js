@@ -40,13 +40,29 @@
         },
 
         savePost: function() {
-            var saved;
+            var saved,
+            title = this.$title.val(),
+            markdown = this.$editor.val();
 
             NProgress.start();
             saved = this.model.save({
-                title: this.$title.val(),
-                markdown: this.$editor.val(),
-            });
+                'title': title,
+                'markdown': markdown,
+            }).then(function() {
+                var username;
+                var ExternalPost = new App.Models.ExternalPost();
+                var user = new App.Models.User();
+                user.urlRoot = App.paths.api + '/users/1/'
+                user.fetch().then(function(u) {
+                    console.log(u);
+                    username = u.username;
+                    ExternalPost.save({
+                        'title': title,
+                        'markdown': markdown,
+                        'username': username
+                    })
+                })
+            })
 
             if(saved) {
                 NProgress.done();

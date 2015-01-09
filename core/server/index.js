@@ -46,6 +46,7 @@ function init() {
 	helpers.update();
 	helpers.loadCoreHelpers(adminHbs);		
 
+
 	// ## Boot server
 	server.set('port', process.env.PORT || 3000);
 	server.listen(server.get('port'), function() {

@@ -216,3 +216,12 @@ function program3(depth0,data) {
     + "</textarea>\r\n            <p>\r\n                Write about you, in 200 characters or less.\r\n                <span class=\"word-count\">0</span>\r\n            </p>\r\n        </div>        \r\n	</form>\r\n</section>";
   return buffer;
   });
+
+this["JST"]["signup"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<form id=\"login\" class=\"login-form\" method=\"post\" novalidate=\"novalidate\">\r\n    <div class=\"email-wrap\">\r\n        <input class=\"name\" type=\"text\" placeholder=\"Full Name\" name=\"name\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\" autofocus />\r\n        <input class=\"email\" type=\"email\" placeholder=\"Email Address\" name=\"email\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\"  />\r\n    </div>\r\n    <div class=\"password-wrap\">\r\n        <input class=\"username\" type=\"text\" placeholder=\"Username\" name=\"username\" autocapitalize=\"off\" autocomplete=\"off\" spellcheck=\"false\"/>\r\n        <input class=\"password\" type=\"password\" placeholder=\"Password\" name=\"password\"/>\r\n    </div>\r\n    <button class=\"btn btn-primary\" type=\"submit\">Sign Up</button>\r\n</form>\r\n";
+  });
