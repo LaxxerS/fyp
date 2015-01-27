@@ -35,6 +35,7 @@ settings = {
         var settings = {};
 		return dataProvider.Settings.findAll().then(function(result) {
             result = result.toJSON();
+            console.log(result);
             return settingsObject(result);
 		});
 	},

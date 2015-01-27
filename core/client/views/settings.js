@@ -131,12 +131,12 @@
 			  filename = file.name;
 			  fileext = filename.split('.');
 			  _filename = 'blog-cover.' + fileext[1];
-			 
+			 console.log(_filename);
 			  formData.append('photos[]', file, _filename);
 			}
 
 			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhost:3000/admin/upload/', true);
+			xhr.open('POST', '/admin/upload/', true);
 
 			xhr.onload = function () {
 			  if (xhr.status === 200) {
