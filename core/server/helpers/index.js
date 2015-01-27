@@ -58,6 +58,7 @@ coreHelpers.meta_title = function(options) {
 }
 
 coreHelpers.user_image = function(options) {
+    console.log(userInfo.image);
     return userInfo.image;
 }
 
